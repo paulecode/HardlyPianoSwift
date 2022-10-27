@@ -11,7 +11,8 @@ import SwiftUI
 struct HardlyPianoSwiftApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+			AuthView(authenticator: MockAuthService(username: nil, password: nil), debug: false)
         }
     }
 }

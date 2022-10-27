@@ -11,6 +11,9 @@
 		DA2D3FCE290AD00A00FA2CE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FCD290AD00A00FA2CE6 /* ContentView.swift */; };
 		DA2D3FD0290AD00C00FA2CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2D3FCF290AD00C00FA2CE6 /* Assets.xcassets */; };
 		DA2D3FD3290AD00C00FA2CE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2D3FD2290AD00C00FA2CE6 /* Preview Assets.xcassets */; };
+		DA2D3FE1290AE61500FA2CE6 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FE0290AE61500FA2CE6 /* AuthView.swift */; };
+		DA2D3FE3290AE66000FA2CE6 /* mockValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FE2290AE66000FA2CE6 /* mockValidate.swift */; };
+		DA2D3FE5290B2A2400FA2CE6 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FE4290B2A2400FA2CE6 /* ValidationProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		DA2D3FCD290AD00A00FA2CE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DA2D3FCF290AD00C00FA2CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA2D3FD2290AD00C00FA2CE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DA2D3FE0290AE61500FA2CE6 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		DA2D3FE2290AE66000FA2CE6 /* mockValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockValidate.swift; sourceTree = "<group>"; };
+		DA2D3FE4290B2A2400FA2CE6 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +57,10 @@
 		DA2D3FCA290AD00A00FA2CE6 /* HardlyPianoSwift */ = {
 			isa = PBXGroup;
 			children = (
-				DA2D3FCB290AD00A00FA2CE6 /* HardlyPianoSwiftApp.swift */,
-				DA2D3FCD290AD00A00FA2CE6 /* ContentView.swift */,
+				DA2D3FD9290AD08D00FA2CE6 /* Sections */,
 				DA2D3FCF290AD00C00FA2CE6 /* Assets.xcassets */,
+				DA2D3FCD290AD00A00FA2CE6 /* ContentView.swift */,
+				DA2D3FCB290AD00A00FA2CE6 /* HardlyPianoSwiftApp.swift */,
 				DA2D3FD1290AD00C00FA2CE6 /* Preview Content */,
 			);
 			path = HardlyPianoSwift;
@@ -65,6 +72,48 @@
 				DA2D3FD2290AD00C00FA2CE6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DA2D3FD9290AD08D00FA2CE6 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D3FDA290AD0A200FA2CE6 /* Auth */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		DA2D3FDA290AD0A200FA2CE6 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D3FDD290AD0FE00FA2CE6 /* AuthFunctions */,
+				DA2D3FDC290AD0E700FA2CE6 /* AuthProtocols */,
+				DA2D3FDB290AD0B600FA2CE6 /* AuthView */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		DA2D3FDB290AD0B600FA2CE6 /* AuthView */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D3FE0290AE61500FA2CE6 /* AuthView.swift */,
+			);
+			path = AuthView;
+			sourceTree = "<group>";
+		};
+		DA2D3FDC290AD0E700FA2CE6 /* AuthProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D3FE4290B2A2400FA2CE6 /* ValidationProtocol.swift */,
+			);
+			path = AuthProtocols;
+			sourceTree = "<group>";
+		};
+		DA2D3FDD290AD0FE00FA2CE6 /* AuthFunctions */ = {
+			isa = PBXGroup;
+			children = (
+				DA2D3FE2290AE66000FA2CE6 /* mockValidate.swift */,
+			);
+			path = AuthFunctions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +187,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA2D3FCE290AD00A00FA2CE6 /* ContentView.swift in Sources */,
+				DA2D3FE3290AE66000FA2CE6 /* mockValidate.swift in Sources */,
 				DA2D3FCC290AD00A00FA2CE6 /* HardlyPianoSwiftApp.swift in Sources */,
+				DA2D3FE1290AE61500FA2CE6 /* AuthView.swift in Sources */,
+				DA2D3FE5290B2A2400FA2CE6 /* ValidationProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
