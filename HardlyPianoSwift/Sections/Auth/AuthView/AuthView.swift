@@ -21,14 +21,29 @@ struct AuthView: View {
     var body: some View {
 		VStack {
 			
-			VStack(alignment: .leading) {
+			VStack(alignment: .leading, spacing: 0) {
 				Text("Username")
+					.font(.subheadline)
+//					.border(.orange)
 				TextField("Username", text: $username)
+					.padding(.top, 12)
+					.padding(.bottom, 4)
+					.font(.system(size: 20))
+//					.border(.orange)
+				Rectangle()
+					.frame(height: 1)
 			}
 			
-			VStack(alignment: .leading) {
+			VStack(alignment: .leading, spacing: 0) {
 				Text("Password")
+//					.border(.orange)
 				TextField("Password", text: $password)
+					.padding(.top, 12)
+					.padding(.bottom, 4)
+					.font(.system(size: 20))
+					.border(.orange)
+				Rectangle()
+					.frame(height: 1)
 			}
 			
 			Button {
@@ -37,11 +52,20 @@ struct AuthView: View {
 				}
 			} label: {
 				Label("Sign in", systemImage: "arrow.forward")
+					.frame(maxWidth: .infinity)
+					.padding(.vertical, 12)
+					.font(.system(size: 20))
+					.fontWeight(.bold)
+					
 			}
 			.buttonStyle(.borderedProminent)
 			
+//			.frame(maxWidth: .infinity)
+			
+			
 			Rectangle()
 				.frame(height: 1)
+				
 			
 			Text("Don't have an account yet?")
 			
@@ -49,6 +73,10 @@ struct AuthView: View {
 				
 			} label: {
 				Text("Create an Account")
+					.frame(maxWidth: .infinity)
+					.padding(.vertical, 12)
+					.font(.system(size: 20))
+					.fontWeight(.bold)
 			}
 			.buttonStyle(.bordered)
 
@@ -56,6 +84,7 @@ struct AuthView: View {
 				Text("Valid login: " + isSignedIn.description)
 			}
 		}
+		.padding(.horizontal, 24.0)
     }
 }
 
