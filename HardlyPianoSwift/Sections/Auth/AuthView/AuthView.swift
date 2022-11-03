@@ -51,14 +51,11 @@ struct AuthView: View {
 					isSignedIn = true
 				}
 			} label: {
-				Label("Sign in", systemImage: "arrow.forward")
-					.frame(maxWidth: .infinity)
-					.padding(.vertical, 12)
-					.font(.system(size: 20))
-					.fontWeight(.bold)
+					Text("Test")
+					.withPrimaryButtonStyle()
 					
 			}
-			.buttonStyle(.borderedProminent)
+//			.buttonStyle(.borderedProminent)
 			
 //			.frame(maxWidth: .infinity)
 			
