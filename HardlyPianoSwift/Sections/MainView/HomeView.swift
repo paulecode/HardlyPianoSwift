@@ -21,7 +21,16 @@ struct HomeView: View {
 			Text("Refresh memory")
 			Text("You haven't played this one in a while")
 			PieceViewSpecial()
-			Text("All my pieces")
+			HStack {
+				Text("All my pieces")
+				Button {
+//					Do nothing yet
+				} label: {
+					Text("Add pieces")
+				}
+
+			}
+			PieceListView()
 			
 		}
     }
