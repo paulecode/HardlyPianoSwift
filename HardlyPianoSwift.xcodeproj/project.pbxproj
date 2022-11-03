@@ -15,6 +15,7 @@
 		DA2D3FE3290AE66000FA2CE6 /* mockValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FE2290AE66000FA2CE6 /* mockValidate.swift */; };
 		DA2D3FE5290B2A2400FA2CE6 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FE4290B2A2400FA2CE6 /* ValidationProtocol.swift */; };
 		DA4BD34C29146B14006C87ED /* PieceViewSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BD34B29146B14006C87ED /* PieceViewSpecial.swift */; };
+		DA4BD34E29146CE4006C87ED /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BD34D29146CE4006C87ED /* HomeView.swift */; };
 		DAE6AB50291464C3005F95C1 /* PrimaryButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE6AB4F291464C3005F95C1 /* PrimaryButtonViewModifier.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		DA2D3FE2290AE66000FA2CE6 /* mockValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockValidate.swift; sourceTree = "<group>"; };
 		DA2D3FE4290B2A2400FA2CE6 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
 		DA4BD34B29146B14006C87ED /* PieceViewSpecial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceViewSpecial.swift; sourceTree = "<group>"; };
+		DA4BD34D29146CE4006C87ED /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DAE6AB4F291464C3005F95C1 /* PrimaryButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +84,7 @@
 		DA2D3FD9290AD08D00FA2CE6 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				DA4BD34A29146ACC006C87ED /* PieceViews */,
 				DA4BD34929146ABE006C87ED /* MainView */,
 				DA2D3FDA290AD0A200FA2CE6 /* Auth */,
 			);
@@ -125,7 +128,7 @@
 		DA4BD34929146ABE006C87ED /* MainView */ = {
 			isa = PBXGroup;
 			children = (
-				DA4BD34A29146ACC006C87ED /* PieceViews */,
+				DA4BD34D29146CE4006C87ED /* HomeView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				DA2D3FCC290AD00A00FA2CE6 /* HardlyPianoSwiftApp.swift in Sources */,
 				DA4BD34C29146B14006C87ED /* PieceViewSpecial.swift in Sources */,
 				DA2D3FE1290AE61500FA2CE6 /* AuthView.swift in Sources */,
+				DA4BD34E29146CE4006C87ED /* HomeView.swift in Sources */,
 				DAE6AB50291464C3005F95C1 /* PrimaryButtonViewModifier.swift in Sources */,
 				DA2D3FE5290B2A2400FA2CE6 /* ValidationProtocol.swift in Sources */,
 			);
