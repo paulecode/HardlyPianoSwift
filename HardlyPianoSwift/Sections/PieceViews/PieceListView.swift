@@ -8,29 +8,29 @@
 import SwiftUI
 
 struct PieceListView: View {
-	let numbers: [String] = ["one", "two", "three"]
 	
+	@State var pieces: [Piece] = MockPieces().pieces
     var body: some View {
 		List {
-			ForEach(numbers, id: \.self) { number in
-				PieceListEntry()
+			ForEach(pieces) { piece in
+				PieceListEntry(title: piece.title, composer: piece.composer, practice: piece.practiceTime)
 			}
-//			.onDelete(perform: stupidMockFunction)
-			.swipeActions {
-				Button {
-//					Do nothing
-				} label: {
-					Text("Test")
-				}
-						.tint(.red)
-
-			}
+			.onDelete(perform: deleteRow)
+//			.swipeActions {
+//				Button {
+////					Do nothing
+//				} label: {
+//					Text("Test")
+//				}
+//						.tint(.red)
+//
+//			}
 		}
 		
     }
 	
-	func stupidMockFunction(at offsets: IndexSet) {
-		return
+	func deleteRow(at offsets: IndexSet) {
+		self.pieces.remove(atOffsets: offsets)
 	}
 }
 

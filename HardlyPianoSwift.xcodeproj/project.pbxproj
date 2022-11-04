@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA1E99222915C3AA00155CB1 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E99212915C3AA00155CB1 /* Piece.swift */; };
+		DA1E99252915C48F00155CB1 /* MockPieceDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E99242915C48F00155CB1 /* MockPieceDataService.swift */; };
 		DA2D3FCC290AD00A00FA2CE6 /* HardlyPianoSwiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FCB290AD00A00FA2CE6 /* HardlyPianoSwiftApp.swift */; };
 		DA2D3FCE290AD00A00FA2CE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FCD290AD00A00FA2CE6 /* ContentView.swift */; };
 		DA2D3FD0290AD00C00FA2CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA2D3FCF290AD00C00FA2CE6 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		DA1E99212915C3AA00155CB1 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		DA1E99242915C48F00155CB1 /* MockPieceDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPieceDataService.swift; sourceTree = "<group>"; };
 		DA2D3FC8290AD00A00FA2CE6 /* HardlyPianoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HardlyPianoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA2D3FCB290AD00A00FA2CE6 /* HardlyPianoSwiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardlyPianoSwiftApp.swift; sourceTree = "<group>"; };
 		DA2D3FCD290AD00A00FA2CE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		DA1E99232915C46800155CB1 /* DataServices */ = {
+			isa = PBXGroup;
+			children = (
+				DA1E99242915C48F00155CB1 /* MockPieceDataService.swift */,
+			);
+			path = DataServices;
+			sourceTree = "<group>";
+		};
 		DA2D3FBF290AD00A00FA2CE6 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		DA2D3FCA290AD00A00FA2CE6 /* HardlyPianoSwift */ = {
 			isa = PBXGroup;
 			children = (
+				DA1E99232915C46800155CB1 /* DataServices */,
 				DA1E99202915C39900155CB1 /* Models */,
 				DAE6AB4D2914635D005F95C1 /* ViewModifiers */,
 				DA2D3FD9290AD08D00FA2CE6 /* Sections */,
@@ -244,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA1E99252915C48F00155CB1 /* MockPieceDataService.swift in Sources */,
 				DA1E99222915C3AA00155CB1 /* Piece.swift in Sources */,
 				DA4BD35029146E81006C87ED /* PieceListView.swift in Sources */,
 				DA2D3FCE290AD00A00FA2CE6 /* ContentView.swift in Sources */,

@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Piece {
-	let id: Int
+struct Piece: Identifiable {
+	let mongoID: String
+	let id = UUID()
 	let title: String
 	let composer: String
 	let practiceTime: Int
