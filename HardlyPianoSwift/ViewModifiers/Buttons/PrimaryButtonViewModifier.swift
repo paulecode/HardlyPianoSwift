@@ -12,12 +12,12 @@ struct PrimaryButtonViewModifier: ViewModifier {
 	
 	func body(content: Content) -> some View {
 		content
-			.foregroundColor(.black)
+			.foregroundColor(.white)
 			.frame(maxWidth: .infinity)
 			.padding(.vertical, 12)
 			.font(.system(size: 20))
-			.fontWeight(.bold)
-			.background(.red)
+			.fontWeight(.medium)
+			.background(Color("PrimaryButton"))
 			.cornerRadius(0)
 	}
 }

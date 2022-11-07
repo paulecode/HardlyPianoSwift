@@ -30,8 +30,9 @@ struct AuthView: View {
 					.padding(.bottom, 4)
 					.font(.system(size: 20))
 //					.border(.orange)
-				Rectangle()
-					.frame(height: 1)
+//				Rectangle()
+//					.frame(height: 1)
+
 			}
 			
 			VStack(alignment: .leading, spacing: 0) {
@@ -70,16 +71,20 @@ struct AuthView: View {
 				
 			} label: {
 				Text("Create an Account")
-					.frame(maxWidth: .infinity)
-					.padding(.vertical, 12)
-					.font(.system(size: 20))
-					.fontWeight(.bold)
+					.withSecondaryButtonStyle()
+				
 			}
-			.buttonStyle(.bordered)
+			//TODO
+//			View Modifiers that dont overwrite each others properties
+			
 
 			if debug {
 				Text("Valid login: " + isSignedIn.description)
 			}
+			TextField("Test", text: $username)
+			Divider()
+				.frame(height: 2)
+				.background(.blue)
 		}
 		.padding(.horizontal, 24.0)
     }

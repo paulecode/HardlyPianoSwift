@@ -15,10 +15,20 @@ struct PieceListEntry: View {
 	
     var body: some View {
 
-		VStack (alignment: .leading) {
-			Text(title)
-			Text(composer + " - " + practice.description + " hours")
+		HStack {
+			VStack (alignment: .listRowSeparatorLeading, spacing: 4) {
+				Text(title)
+					.font(.headline)
+				Text(composer + " - " + practice.description + " hours")
+					.font(.subheadline)
+			}
+			.frame(maxWidth: .infinity, alignment: .leading)
+			.padding(.horizontal, 24)
+			.padding(.vertical, 16)
+			Spacer()
 		}
+		.frame(maxWidth: .infinity)
+		.border(.red)
     }
 }
 
