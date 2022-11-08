@@ -18,7 +18,7 @@ struct AuthView: View {
 	//Feature flags
 	let debug: Bool
 	
-    var body: some View {
+	var body: some View {
 		VStack {
 			
 			VStack(alignment: .leading, spacing: 0) {
@@ -28,12 +28,12 @@ struct AuthView: View {
 					.padding(.top, 12)
 					.padding(.bottom, 4)
 					.font(.system(size: 20))
-
+				
 			}
 			
 			VStack(alignment: .leading, spacing: 0) {
 				Text("Password")
-//					.border(.orange)
+				//					.border(.orange)
 				TextField("Password", text: $password)
 					.padding(.top, 12)
 					.padding(.bottom, 4)
@@ -48,18 +48,15 @@ struct AuthView: View {
 					isSignedIn = true
 				}
 			} label: {
-					Text("Test")
+				Text("Test")
+					.withPrimaryButtonSizeViewModifier()
 					.withPrimaryButtonColorModifier()
-					
+				
 			}
-//			.buttonStyle(.borderedProminent)
-			
-//			.frame(maxWidth: .infinity)
-			
 			
 			Rectangle()
 				.frame(height: 1)
-				
+			
 			
 			Text("Don't have an account yet?")
 			
@@ -67,13 +64,11 @@ struct AuthView: View {
 				
 			} label: {
 				Text("Create an Account")
+					.withPrimaryButtonSizeViewModifier()
 					.withSecondaryButtonStyle()
 				
 			}
-			//TODO
-//			View Modifiers that dont overwrite each others properties
 			
-
 			if debug {
 				Text("Valid login: " + isSignedIn.description)
 			}
@@ -83,15 +78,14 @@ struct AuthView: View {
 				.background(.blue)
 		}
 		.padding(.horizontal, 24.0)
-    }
+	}
 }
 
 struct AuthView_Previews: PreviewProvider {
 	
 	
-    static var previews: some View {
-	//look at that beautiful dependency injection
-	let mockAuth = MockAuthService(username: nil, password: nil)
+	static var previews: some View {
+		let mockAuth = MockAuthService(username: nil, password: nil)
 		AuthView(authenticator: mockAuth, debug: true)
-    }
+	}
 }
