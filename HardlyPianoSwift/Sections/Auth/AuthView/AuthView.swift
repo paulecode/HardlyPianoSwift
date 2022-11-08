@@ -24,14 +24,10 @@ struct AuthView: View {
 			VStack(alignment: .leading, spacing: 0) {
 				Text("Username")
 					.font(.subheadline)
-//					.border(.orange)
 				TextField("Username", text: $username)
 					.padding(.top, 12)
 					.padding(.bottom, 4)
 					.font(.system(size: 20))
-//					.border(.orange)
-//				Rectangle()
-//					.frame(height: 1)
 
 			}
 			
@@ -53,7 +49,7 @@ struct AuthView: View {
 				}
 			} label: {
 					Text("Test")
-					.withPrimaryButtonStyle()
+					.withPrimaryButtonColorModifier()
 					
 			}
 //			.buttonStyle(.borderedProminent)

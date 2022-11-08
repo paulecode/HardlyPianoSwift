@@ -8,8 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct PrimaryButtonViewModifier: ViewModifier {
-	
+struct PrimaryButtonColorViewModifier: ViewModifier {
 	func body(content: Content) -> some View {
 		content
 			.foregroundColor(.white)
@@ -23,8 +22,7 @@ struct PrimaryButtonViewModifier: ViewModifier {
 }
 
 extension View {
-	
-	func withPrimaryButtonStyle() -> some View {
-		modifier(PrimaryButtonViewModifier())
+	func withPrimaryButtonColorModifier() -> some View {
+		modifier(PrimaryButtonColorViewModifier())
 	}
 }

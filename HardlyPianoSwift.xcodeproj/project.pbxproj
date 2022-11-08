@@ -21,7 +21,7 @@
 		DA4BD35029146E81006C87ED /* PieceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BD34F29146E81006C87ED /* PieceListView.swift */; };
 		DA4BD35429146EC4006C87ED /* PieceListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BD35329146EC4006C87ED /* PieceListEntry.swift */; };
 		DAA1B2A629198E2F002C448E /* SecondaryButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */; };
-		DAE6AB50291464C3005F95C1 /* PrimaryButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE6AB4F291464C3005F95C1 /* PrimaryButtonViewModifier.swift */; };
+		DAE6AB50291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +40,7 @@
 		DA4BD34F29146E81006C87ED /* PieceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceListView.swift; sourceTree = "<group>"; };
 		DA4BD35329146EC4006C87ED /* PieceListEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceListEntry.swift; sourceTree = "<group>"; };
 		DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonViewModifier.swift; sourceTree = "<group>"; };
-		DAE6AB4F291464C3005F95C1 /* PrimaryButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonViewModifier.swift; sourceTree = "<group>"; };
+		DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonColorViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +182,7 @@
 		DAE6AB4E29146368005F95C1 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				DAE6AB4F291464C3005F95C1 /* PrimaryButtonViewModifier.swift */,
+				DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */,
 				DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */,
 			);
 			path = Buttons;
@@ -269,7 +269,7 @@
 				DA4BD35429146EC4006C87ED /* PieceListEntry.swift in Sources */,
 				DA2D3FE1290AE61500FA2CE6 /* AuthView.swift in Sources */,
 				DA4BD34E29146CE4006C87ED /* HomeView.swift in Sources */,
-				DAE6AB50291464C3005F95C1 /* PrimaryButtonViewModifier.swift in Sources */,
+				DAE6AB50291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift in Sources */,
 				DA2D3FE5290B2A2400FA2CE6 /* ValidationProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
