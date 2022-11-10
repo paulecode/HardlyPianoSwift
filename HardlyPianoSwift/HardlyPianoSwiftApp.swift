@@ -12,7 +12,8 @@ struct HardlyPianoSwiftApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-			AuthView(authenticator: MockAuthService(username: nil, password: nil), debug: true)
+//			AuthView(authenticator: MockAuthService(username: nil, password: nil), debug: true)
+			PieceListView()
         }
     }
 }

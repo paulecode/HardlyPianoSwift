@@ -13,27 +13,35 @@ struct PieceListEntry: View {
 	let composer: String
 	let practice: Int
 	
-    var body: some View {
-
+	var body: some View {
+		
 		HStack {
 			VStack (alignment: .listRowSeparatorLeading, spacing: 4) {
 				Text(title)
 					.font(.headline)
-				Text(composer + " - " + practice.description + " hours")
-					.font(.subheadline)
+					.fontWeight(.bold)
+				HStack {
+					Text(composer)
+						.font(.subheadline)
+						.foregroundColor(Color("Flat3"))
+						.fontWeight(.medium)
+					Text(practice.description + " hours")
+						.font(.subheadline)
+						.foregroundColor(Color("Flat5"))
+
+				}
 			}
 			.frame(maxWidth: .infinity, alignment: .leading)
 			.padding(.horizontal, 24)
 			.padding(.vertical, 16)
-			Spacer()
 		}
 		.frame(maxWidth: .infinity)
-		.border(.red)
-    }
+		.background(Color("Flat9"))
+	}
 }
 
 struct PieceListEntry_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		PieceListEntry(title: "Apassionata", composer: "Beethoven", practice: 5)
-    }
+	}
 }

@@ -9,14 +9,16 @@ import SwiftUI
 
 struct PieceViewSpecial: View {
     var body: some View {
-		HStack {
-			VStack (alignment: .leading) {
+		HStack (spacing: 12){
+			VStack (alignment: .leading, spacing: 4) {
 				Text("Title")
 				Text("Composer" + " - " + "8 hours practiced")
 			}
 			Image(systemName: "arrow.forward")
 		}
-		.border(.red)
+		.frame(maxWidth: .infinity)
+		.padding(.vertical)
+		.border(Color("Flat3"))
     }
 }
 

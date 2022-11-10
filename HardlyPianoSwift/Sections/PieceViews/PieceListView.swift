@@ -10,32 +10,22 @@ import SwiftUI
 struct PieceListView: View {
 	
 	@State var pieces: [Piece] = MockPieces().pieces
-    var body: some View {
+	var body: some View {
 		List {
 			ForEach(pieces) { piece in
 				PieceListEntry(title: piece.title, composer: piece.composer, practice: piece.practiceTime)
+					.listRowSeparatorTint(Color("Flat3"))
+					.listRowBackground(Color("Flat9"))
 			}
-			.onDelete(perform: deleteRow)
-//			.swipeActions {
-//				Button {
-////					Do nothing
-//				} label: {
-//					Text("Test")
-//				}
-//						.tint(.red)
-//
-//			}
 		}
+		.listStyle(.plain)
+		//TODO Fix this inset :(
 		
-    }
-	
-	func deleteRow(at offsets: IndexSet) {
-		self.pieces.remove(atOffsets: offsets)
 	}
 }
 
 struct PieceListView_Previews: PreviewProvider {
-    static var previews: some View {
-        PieceListView()
-    }
+	static var previews: some View {
+		PieceListView()
+	}
 }
