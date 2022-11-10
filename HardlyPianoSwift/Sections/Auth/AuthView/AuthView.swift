@@ -11,6 +11,8 @@ struct AuthView: View {
 	
 	@State private var username: String = ""
 	@State private var password: String = ""
+	@FocusState private var userfieldFocused: Bool
+	@FocusState private var passfieldFocused: Bool
 	@State private var isSignedIn: Bool = false
 	
 	var authenticator: validationProtocol
@@ -21,63 +23,71 @@ struct AuthView: View {
 	var body: some View {
 		VStack {
 			
-			VStack(alignment: .leading, spacing: 0) {
-				Text("Username")
-					.font(.subheadline)
-				TextField("Username", text: $username)
-					.padding(.top, 12)
-					.padding(.bottom, 4)
-					.font(.system(size: 20))
-				
-			}
-			
-			VStack(alignment: .leading, spacing: 0) {
-				Text("Password")
-				//					.border(.orange)
-				TextField("Password", text: $password)
-					.padding(.top, 12)
-					.padding(.bottom, 4)
-					.font(.system(size: 20))
-					.border(.orange)
-				Rectangle()
+			//LoginTextField
+			VStack (alignment: .leading) {
+				Text("username")
+					.fontWeight(.bold)
+				TextField("Maurice Ravel", text: $username)
+					.focused($userfieldFocused)
+					.autocorrectionDisabled(true)
+					.textInputAutocapitalization(.never)
+				Divider()
 					.frame(height: 1)
+					.background(userfieldFocused ? .black : .gray)
 			}
+			.padding()
 			
+			//PassTextfield
+			VStack (alignment: .leading) {
+				Text("password")
+					.fontWeight(.bold)
+				SecureField("*********", text: $password)
+					.focused($passfieldFocused)
+				Divider()
+					.frame(height: 1)
+					.background(passfieldFocused ? .black : .gray)
+			}
+			.padding()
+			
+			//LoginButton
 			Button {
 				if authenticator.signIn(usernameInput: username, passwordInput: password) {
 					isSignedIn = true
 				}
 			} label: {
-				Text("Test")
+				Text("Login")
 					.withPrimaryButtonSizeViewModifier()
 					.withPrimaryButtonColorModifier()
+					.padding(.horizontal, 16)
+				
 				
 			}
 			
-			Rectangle()
-				.frame(height: 1)
+			Divider()
+				.frame(maxWidth: .infinity, maxHeight: 1)
+				.background(.black)
+				.padding(16)
 			
-			
+			//To Register CTA
 			Text("Don't have an account yet?")
+				.fontWeight(.bold)
 			
 			Button {
-				
+				//Add functionality please :(
 			} label: {
 				Text("Create an Account")
 					.withPrimaryButtonSizeViewModifier()
 					.withSecondaryButtonStyle()
+					.padding(.horizontal, 16)
 				
 			}
 			
 			if debug {
 				Text("Valid login: " + isSignedIn.description)
 			}
-			TextField("Test", text: $username)
-			Divider()
-				.frame(height: 2)
-				.background(.blue)
 		}
-		.padding(.horizontal, 24.0)
+		.frame(maxWidth: .infinity, maxHeight: .infinity)
+		.background(Color("Flat9"))
 	}
 }
 
@@ -86,6 +96,6 @@ struct AuthView_Previews: PreviewProvider {
 	
 	static var previews: some View {
 		let mockAuth = MockAuthService(username: nil, password: nil)
-		AuthView(authenticator: mockAuth, debug: true)
+		AuthView(authenticator: mockAuth, debug: false)
 	}
 }
