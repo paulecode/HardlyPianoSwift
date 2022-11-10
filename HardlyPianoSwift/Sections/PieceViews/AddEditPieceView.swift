@@ -11,8 +11,8 @@ struct AddEditPieceView: View {
 	
 	@State var title: String = ""
 	@State var composer: String = ""
-	@FocusState private var userIsFocussed: Bool
-	@FocusState private var passIsFocussed: Bool
+	@FocusState private var titleIsFocussed: Bool
+	@FocusState private var composerIsFocussed: Bool
 	
 	var body: some View {
 		VStack {
@@ -35,10 +35,10 @@ struct AddEditPieceView: View {
 				Text("Piece name")
 					.fontWeight(.bold)
 				TextField("Nocturne Op. 48 No. 1", text: $title)
-					.focused($userIsFocussed)
+					.focused($titleIsFocussed)
 				Divider()
 					.frame(height: 1)
-					.background(userIsFocussed ? .black : .gray)
+					.background(titleIsFocussed ? .black : .gray)
 			}
 			.padding()
 			
@@ -46,10 +46,10 @@ struct AddEditPieceView: View {
 				Text("Composer")
 					.fontWeight(.bold)
 				TextField("Chopin", text: $composer)
-					.focused($passIsFocussed)
+					.focused($composerIsFocussed)
 				Divider()
 					.frame(height: 1)
-					.background(passIsFocussed ? .black : .gray)
+					.background(composerIsFocussed ? .black : .gray)
 			}
 			.padding()
 			Spacer()
