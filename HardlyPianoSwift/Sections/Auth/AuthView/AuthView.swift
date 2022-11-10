@@ -33,7 +33,7 @@ struct AuthView: View {
 					.textInputAutocapitalization(.never)
 				Divider()
 					.frame(height: 1)
-					.background(userfieldFocused ? .black : .gray)
+					.background(userfieldFocused ? Color("Flat3") : Color("Flat7"))
 			}
 			.padding()
 			
@@ -45,7 +45,7 @@ struct AuthView: View {
 					.focused($passfieldFocused)
 				Divider()
 					.frame(height: 1)
-					.background(passfieldFocused ? .black : .gray)
+					.background(passfieldFocused ? Color("Flat3") : Color("Flat7"))
 			}
 			.padding()
 			
@@ -65,7 +65,7 @@ struct AuthView: View {
 			
 			Divider()
 				.frame(maxWidth: .infinity, maxHeight: 1)
-				.background(.black)
+				.background(Color("Flat3"))
 				.padding(16)
 			
 			//To Register CTA

@@ -29,7 +29,7 @@ struct SignUpView: View {
 					.textInputAutocapitalization(.never)
 				Divider()
 					.frame(height: 1)
-					.background(userfieldFocused ? .black : .gray)
+					.background(userfieldFocused ? Color("Flat3") : Color("Flat7"))
 			}
 			.padding()
 			
@@ -41,7 +41,7 @@ struct SignUpView: View {
 					.focused($passfieldFocused)
 				Divider()
 					.frame(height: 1)
-					.background(passfieldFocused ? .black : .gray)
+					.background(passfieldFocused ? Color("Flat3") : Color("Flat7"))
 			}
 			.padding()
 			
@@ -53,7 +53,7 @@ struct SignUpView: View {
 					.focused($repeatPassFocused)
 				Divider()
 					.frame(height: 1)
-					.background(repeatPassFocused ? .black : .gray)
+					.background(repeatPassFocused ? Color("Flat3") : Color("Flat7"))
 			}
 			.padding()
 			
@@ -71,7 +71,7 @@ struct SignUpView: View {
 			
 			Divider()
 				.frame(maxWidth: .infinity, maxHeight: 1)
-				.background(.black)
+				.background(Color("Flat3"))
 				.padding(16)
 			
 			//To Register CTA

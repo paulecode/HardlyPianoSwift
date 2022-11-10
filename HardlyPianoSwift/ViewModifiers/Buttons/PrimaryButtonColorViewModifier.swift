@@ -14,7 +14,7 @@ struct PrimaryButtonColorViewModifier: ViewModifier {
 			.foregroundColor(.white)
 			.font(.system(size: 20))
 			.fontWeight(.medium)
-			.background(Color("PrimaryButton"))
+			.background(Color("Flat3"))
 	}
 }
 

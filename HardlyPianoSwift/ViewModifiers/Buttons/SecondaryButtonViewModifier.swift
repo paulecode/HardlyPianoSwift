@@ -11,11 +11,11 @@ import SwiftUI
 struct SecondaryButtonViewModifier: ViewModifier {
 	func body(content: Content) -> some View {
 		content
-			.foregroundColor(Color("PrimaryButton"))
+			.foregroundColor(Color("Flat3"))
 			.font(.system(size: 20))
 			.fontWeight(.bold)
 			.background(.white)
-			.border(Color("PrimaryButton"), width: 1.5)
+			.border(Color("Flat3"), width: 1.5)
 	}
 }
 
