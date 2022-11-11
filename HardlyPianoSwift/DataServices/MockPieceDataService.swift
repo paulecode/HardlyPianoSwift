@@ -45,7 +45,5 @@ class MockPieces {
 		composer: "Chopin",
 		practiceTime: 1
 	),
-	
-	
 	]
 }

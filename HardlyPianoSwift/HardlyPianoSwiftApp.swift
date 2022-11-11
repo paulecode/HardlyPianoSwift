@@ -9,11 +9,13 @@ import SwiftUI
 
 @main
 struct HardlyPianoSwiftApp: App {
+//	@State var selectedView: Int = 9
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-//			AuthView(authenticator: MockAuthService(username: nil, password: nil), debug: true)
-			PieceListView()
+//			MainView(selectedView: $selectedView)
+			AuthView(authenticator: MockAuthService(username: nil, password: nil), debug: true)
+//			PieceListView()
         }
     }
 }
