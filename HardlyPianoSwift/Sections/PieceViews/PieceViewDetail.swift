@@ -11,7 +11,7 @@ struct PieceViewDetail: View {
 	
 	var title: String
 	
-    var body: some View {
+	var body: some View {
 		VStack (spacing: 16){
 			VStack (alignment: .leading, spacing: 8) {
 				Text(title)
@@ -22,7 +22,7 @@ struct PieceViewDetail: View {
 					.fontWeight(.medium)
 			}
 			.frame(maxWidth: .infinity, alignment: .leading)
-//			.border(.red)
+			//			.border(.red)
 			
 			HStack (spacing: 0) {
 				VStack (alignment: .leading, spacing: 4) {
@@ -35,7 +35,7 @@ struct PieceViewDetail: View {
 						.fontWeight(.bold)
 				}
 				.frame(maxWidth: .infinity, alignment: .leading)
-//				.border(.green)
+				//				.border(.green)
 				VStack (alignment: .leading) {
 					Text("Last practiced")
 						.font(.subheadline)
@@ -46,9 +46,9 @@ struct PieceViewDetail: View {
 						.fontWeight(.bold)
 				}
 				.frame(maxWidth: .infinity, alignment: .leading)
-//				.border(.blue)
+				//				.border(.blue)
 			}
-//			.border(.cyan)
+			//			.border(.cyan)
 			
 			Button {
 				//Practice
@@ -79,16 +79,16 @@ struct PieceViewDetail: View {
 			} label: {
 				Text("Delete piece")
 			}
-//			.border(.yellow)
+			//			.border(.yellow)
 			
 		}
 		.padding()
-//		.border(.black)
-    }
+		//		.border(.black)
+	}
 }
 
 struct PieceViewDetail_Previews: PreviewProvider {
-    static var previews: some View {
+	static var previews: some View {
 		PieceViewDetail(title: "Prelude in C Major")
-    }
+	}
 }

@@ -37,14 +37,14 @@ struct PieceListView: View {
 						ForEach (pieces.filter({ Piece in
 							Piece.composer == composer
 						}), id: \.self) { piece in
-							NavigationLink {
-								PieceViewDetail(title: piece.title)
-							} label: {
-								PieceListEntry(title: piece.title, practice: piece.practiceTime)
-								
-								//									.padding(.horizontal)
-							}
-							.buttonStyle(PlainButtonStyle())
+//							NavigationLink {
+//								PieceViewDetail(title: piece.title)
+//							} label: {
+//								PieceListEntry(title: piece.title, practice: piece.practiceTime)
+//							}
+//							.buttonStyle(PlainButtonStyle())
+							PieceListEntry(title: piece.title, practice: piece.practiceTime)
+
 						}
 					}
 					.padding()

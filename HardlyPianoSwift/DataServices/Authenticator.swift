@@ -61,7 +61,6 @@ class RestAuthenticator: authenticatorProtocol {
 					throw LoginError.badRequest(message: errorResponse.message)
 				}
 			}
-
 		} catch {
 			throw LoginError.encodingFailed
 		}
