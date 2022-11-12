@@ -74,9 +74,12 @@ struct MainView: View {
 				//Page 2 End
 				
 				//TabView Page 3
-				VStack {
+				VStack (spacing: 0){
 					
-					PieceListView()
+					PieceListView(
+						background: Color("Flat" + selectedView.description)
+					)
+					Divider()
 					Button {
 						//Add Piece
 					} label: {
@@ -88,6 +91,7 @@ struct MainView: View {
 					}
 					
 				}
+				.padding(.bottom)
 				.tabItem {
 					Text("Piece List")
 				}

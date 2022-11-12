@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct PieceViewDetail: View {
+	
+	var title: String
+	
     var body: some View {
 		VStack (spacing: 16){
 			VStack (alignment: .leading, spacing: 8) {
-				Text("Prelude in C Major")
+				Text(title)
 					.font(.title2)
 					.fontWeight(.bold)
 				Text("J. S. Bach")
@@ -86,6 +89,6 @@ struct PieceViewDetail: View {
 
 struct PieceViewDetail_Previews: PreviewProvider {
     static var previews: some View {
-        PieceViewDetail()
+		PieceViewDetail(title: "Prelude in C Major")
     }
 }

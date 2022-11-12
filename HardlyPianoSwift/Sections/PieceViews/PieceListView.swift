@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PieceListView: View {
 	
+	let background: Color
+	
 	@State var pieces: [Piece] = MockPieces().pieces
 	//	@State var pathView: Piece
 	
@@ -25,44 +27,39 @@ struct PieceListView: View {
 	}
 	
 	var body: some View {
+		
 		NavigationStack {
-			List {
+			ScrollView {
 				ForEach(composers, id: \.self) { composer in
 					VStack (alignment: .leading, spacing: 16){
 						Text(composer)
 							.font(.title)
-							.listRowBackground(Color.clear)
 						ForEach (pieces.filter({ Piece in
 							Piece.composer == composer
 						}), id: \.self) { piece in
-							//							PieceListEntry(title: piece.title, practice: piece.practiceTime)
-							//								.listRowBackground(Color.clear)
-							//								.listRowSeparator(.hidden)
-							
-							NavigationLink(value: piece) {
-								Text(piece.title)
+							NavigationLink {
+								PieceViewDetail(title: piece.title)
+							} label: {
+								PieceListEntry(title: piece.title, practice: piece.practiceTime)
+								
+								//									.padding(.horizontal)
 							}
+							.buttonStyle(PlainButtonStyle())
 						}
-						
 					}
-					.listRowBackground(Color.clear)
-					.listRowSeparator(.hidden)
+					.padding()
 				}
 				
 			}
-			.navigationDestination(for: Piece.self) { piece in
-				Text(piece.title)
-			}
-			.listStyle(.plain)
+			.background(background)
+			
 		}
-
-		//TODO Fix this inset :(
 		
 	}
 }
 
 struct PieceListView_Previews: PreviewProvider {
 	static var previews: some View {
-		PieceListView()
+		PieceListView(background: .white)
 	}
 }
