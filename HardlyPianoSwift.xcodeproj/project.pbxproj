@@ -22,9 +22,11 @@
 		DA6C0752291A4F3C0031D6FA /* PrimaryButtonSizeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6C0751291A4F3C0031D6FA /* PrimaryButtonSizeViewModifier.swift */; };
 		DA7A5758291D50B700C97FF5 /* AddEditPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A5757291D50B700C97FF5 /* AddEditPieceView.swift */; };
 		DAA1B2A629198E2F002C448E /* SecondaryButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */; };
+		DABF74B8291FAA0400201E61 /* PieceViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */; };
 		DAD1AC7C291DA3AB00792866 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1AC7B291DA3AB00792866 /* SignUpView.swift */; };
 		DAE6AB50291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */; };
 		DAFF8FE8291E75BF005DB486 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF8FE7291E75BF005DB486 /* MainView.swift */; };
+		DAFF8FEA291EC19F005DB486 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF8FE9291EC19F005DB486 /* UserSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +46,11 @@
 		DA6C0751291A4F3C0031D6FA /* PrimaryButtonSizeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonSizeViewModifier.swift; sourceTree = "<group>"; };
 		DA7A5757291D50B700C97FF5 /* AddEditPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditPieceView.swift; sourceTree = "<group>"; };
 		DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonViewModifier.swift; sourceTree = "<group>"; };
+		DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceViewDetail.swift; sourceTree = "<group>"; };
 		DAD1AC7B291DA3AB00792866 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonColorViewModifier.swift; sourceTree = "<group>"; };
 		DAFF8FE7291E75BF005DB486 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		DAFF8FE9291EC19F005DB486 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				DA1E99242915C48F00155CB1 /* MockPieceDataService.swift */,
+				DAFF8FE9291EC19F005DB486 /* UserSession.swift */,
 			);
 			path = DataServices;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				DA4BD34F29146E81006C87ED /* PieceListView.swift */,
 				DA4BD35329146EC4006C87ED /* PieceListEntry.swift */,
 				DA7A5757291D50B700C97FF5 /* AddEditPieceView.swift */,
+				DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */,
 			);
 			path = PieceViews;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				DAA1B2A629198E2F002C448E /* SecondaryButtonViewModifier.swift in Sources */,
 				DA2D3FCC290AD00A00FA2CE6 /* HardlyPianoSwiftApp.swift in Sources */,
 				DA7A5758291D50B700C97FF5 /* AddEditPieceView.swift in Sources */,
+				DAFF8FEA291EC19F005DB486 /* UserSession.swift in Sources */,
 				DA4BD34C29146B14006C87ED /* PieceViewSpecial.swift in Sources */,
 				DA4BD35429146EC4006C87ED /* PieceListEntry.swift in Sources */,
 				DA6C0752291A4F3C0031D6FA /* PrimaryButtonSizeViewModifier.swift in Sources */,
@@ -282,6 +289,7 @@
 				DA2D3FE1290AE61500FA2CE6 /* AuthView.swift in Sources */,
 				DAD1AC7C291DA3AB00792866 /* SignUpView.swift in Sources */,
 				DAE6AB50291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift in Sources */,
+				DABF74B8291FAA0400201E61 /* PieceViewDetail.swift in Sources */,
 				DA2D3FE5290B2A2400FA2CE6 /* ValidationProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

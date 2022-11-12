@@ -10,11 +10,12 @@ import SwiftUI
 @main
 struct HardlyPianoSwiftApp: App {
 //	@State var selectedView: Int = 9
+	@StateObject var userSession = UserSession()
     var body: some Scene {
         WindowGroup {
-//            ContentView()
+			ContentView().environmentObject(userSession)
 //			MainView(selectedView: $selectedView)
-			AuthView(authenticator: MockAuthService(username: nil, password: nil), debug: true)
+//			AuthView(authenticator: MockAuthService(username: nil, password: nil), debug: true)
 //			PieceListView()
         }
     }

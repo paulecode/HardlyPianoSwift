@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
 	
 	@Binding var selectedView: Int
+	@EnvironmentObject var userSession: UserSession
 	var pieces: [Piece] = MockPieces().pieces
 	
 	var body: some View {
@@ -30,6 +31,16 @@ struct MainView: View {
 					.padding(.horizontal, 24)
 					PieceViewSpecial(title: "Nocturne", composer: "Chopin", practice: 5)
 						.padding(.horizontal, 24)
+					Button {
+						userSession.signOut()
+					} label: {
+						Text("sign out")
+							.withPrimaryButtonSizeViewModifier()
+							.withPrimaryButtonColorModifier()
+							.padding(.horizontal, 16)
+						
+					}
+					
 				}
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
 				.background(.clear)
@@ -64,7 +75,7 @@ struct MainView: View {
 				
 				//TabView Page 3
 				VStack {
-
+					
 					PieceListView()
 					Button {
 						//Add Piece
@@ -76,7 +87,6 @@ struct MainView: View {
 						//TODO Fix this
 					}
 					
-
 				}
 				.tabItem {
 					Text("Piece List")

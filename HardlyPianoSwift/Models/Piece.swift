@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Piece: Identifiable {
+struct Piece: Identifiable, Hashable {
 	let mongoID: String
 	let id = UUID()
 	let title: String

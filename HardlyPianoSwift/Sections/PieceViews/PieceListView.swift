@@ -10,27 +10,52 @@ import SwiftUI
 struct PieceListView: View {
 	
 	@State var pieces: [Piece] = MockPieces().pieces
+	//	@State var pathView: Piece
+	
+	//	var sortedPieces
+	
+	//	var composers: Set {
+	//		return Set(pieces.map({ $0.composer })).sorted()
+	//	}
+	//	func composers() -> Set<String> {
+	//		return Set(pieces.map({ $0.composer }).sorted())
+	//	}
+	var composers: Array<String> {
+		return Set(pieces.map({ $0.composer })).sorted()
+	}
+	
 	var body: some View {
-		List {
-			ForEach(Set(pieces.map({ $0.composer })).sorted(), id: \.self) { composer in
-				VStack (alignment: .leading, spacing: 16){
-					Text(composer)
-						.font(.title)
-						.listRowBackground(Color.clear)
-					ForEach(pieces.filter({ Piece in
-						Piece.composer == composer
-					})) { piece in
-						PieceListEntry(title: piece.title, practice: piece.practiceTime)
+		NavigationStack {
+			List {
+				ForEach(composers, id: \.self) { composer in
+					VStack (alignment: .leading, spacing: 16){
+						Text(composer)
+							.font(.title)
 							.listRowBackground(Color.clear)
-							.listRowSeparator(.hidden)
+						ForEach (pieces.filter({ Piece in
+							Piece.composer == composer
+						}), id: \.self) { piece in
+							//							PieceListEntry(title: piece.title, practice: piece.practiceTime)
+							//								.listRowBackground(Color.clear)
+							//								.listRowSeparator(.hidden)
+							
+							NavigationLink(value: piece) {
+								Text(piece.title)
+							}
+						}
+						
 					}
+					.listRowBackground(Color.clear)
+					.listRowSeparator(.hidden)
 				}
-				.listRowBackground(Color.clear)
-				.listRowSeparator(.hidden)
+				
 			}
-			
+			.navigationDestination(for: Piece.self) { piece in
+				Text("You made it")
+			}
+			.listStyle(.plain)
 		}
-		.listStyle(.plain)
+
 		//TODO Fix this inset :(
 		
 	}

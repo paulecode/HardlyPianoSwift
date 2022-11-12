@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+	@EnvironmentObject var userSession: UserSession
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+		if userSession.isSignedIn {
+			MainView(selectedView: .constant(7))
+		} else {
+			SignUpView()
+		}
+	}
+	
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SignUpView: View {
 	
+	@EnvironmentObject var userSession: UserSession
+	
 	@State private var username: String = ""
 	@State private var password: String = ""
 	@State private var repeatpassword: String = ""
@@ -59,7 +61,7 @@ struct SignUpView: View {
 			
 			//LoginButton
 			Button {
-
+				userSession.signIn()
 			} label: {
 				Text("sign up")
 					.withPrimaryButtonSizeViewModifier()
