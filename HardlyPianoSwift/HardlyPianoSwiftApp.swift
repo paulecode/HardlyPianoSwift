@@ -9,11 +9,14 @@ import SwiftUI
 
 @main
 struct HardlyPianoSwiftApp: App {
-//	@State var selectedView: Int = 9
 	@StateObject var userSession = UserSession()
+	//Declare your authenticator here
+	var authenticator: authenticatorProtocol = RestAuthenticator()
+	
     var body: some Scene {
         WindowGroup {
-			ContentView().environmentObject(userSession)
+			ContentView(authenticator: authenticator)
+				.environmentObject(userSession)
 //			MainView(selectedView: $selectedView)
 //			AuthView(authenticator: MockAuthService(username: nil, password: nil), debug: true)
 //			PieceListView()

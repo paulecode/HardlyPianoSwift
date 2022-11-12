@@ -13,3 +13,7 @@ protocol validationProtocol {
 	
 	func signIn(usernameInput: String, passwordInput: String) -> Bool
 }
+
+protocol authenticatorProtocol {
+	func signIn(username: String, password: String) async throws -> String
+}

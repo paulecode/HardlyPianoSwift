@@ -7,21 +7,13 @@
 
 import Foundation
 
-class MockAuthService: validationProtocol {
+class MockAuthService: authenticatorProtocol {
 	
-	let username: String //= "James"
-	let password: String //= "Bond"
-	
-	init(username: String?, password: String?) {
-		self.username = username ?? "James"
-		self.password = password ?? "Bond"
-	}
-	
-	func signIn(usernameInput: String, passwordInput: String) -> Bool {
-		if (usernameInput == username && passwordInput == password) {
-			return true
+	func signIn(username: String, password: String) throws -> String {
+		if (username == "irakli" && password == "123456") {
+			return "JWT1337"
 		} else {
-			return false
+			throw LoginError.badRequest(message: "Bad Requests")
 		}
 	}
 	

@@ -51,7 +51,7 @@ struct PieceListView: View {
 				
 			}
 			.navigationDestination(for: Piece.self) { piece in
-				Text("You made it")
+				Text(piece.title)
 			}
 			.listStyle(.plain)
 		}

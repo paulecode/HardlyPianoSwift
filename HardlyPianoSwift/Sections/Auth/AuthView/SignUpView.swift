@@ -22,13 +22,14 @@ struct SignUpView: View {
 		VStack {
 			
 			//LoginTextField
-			VStack (alignment: .leading) {
+			VStack (alignment: .leading, spacing: 0) {
 				Text("username")
 					.fontWeight(.bold)
 				TextField("Maurice Ravel", text: $username)
 					.focused($userfieldFocused)
 					.autocorrectionDisabled(true)
 					.textInputAutocapitalization(.never)
+					.padding(.vertical, 12)
 				Divider()
 					.frame(height: 1)
 					.background(userfieldFocused ? Color("Flat3") : Color("Flat7"))
@@ -36,11 +37,12 @@ struct SignUpView: View {
 			.padding()
 			
 			//PassTextfield
-			VStack (alignment: .leading) {
+			VStack (alignment: .leading, spacing: 0) {
 				Text("password")
 					.fontWeight(.bold)
 				SecureField("*********", text: $password)
 					.focused($passfieldFocused)
+					.padding(.vertical, 12)
 				Divider()
 					.frame(height: 1)
 					.background(passfieldFocused ? Color("Flat3") : Color("Flat7"))
@@ -48,20 +50,20 @@ struct SignUpView: View {
 			.padding()
 			
 			//RepeatPassTextfield
-			VStack (alignment: .leading) {
+			VStack (alignment: .leading, spacing: 0) {
 				Text("repeat password")
 					.fontWeight(.bold)
 				SecureField("*********", text: $repeatpassword)
 					.focused($repeatPassFocused)
+					.padding(.vertical, 12)
 				Divider()
 					.frame(height: 1)
 					.background(repeatPassFocused ? Color("Flat3") : Color("Flat7"))
 			}
 			.padding()
-			
 			//LoginButton
 			Button {
-				userSession.signIn()
+				
 			} label: {
 				Text("sign up")
 					.withPrimaryButtonSizeViewModifier()

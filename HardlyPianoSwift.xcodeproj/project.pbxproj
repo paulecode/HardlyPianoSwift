@@ -23,6 +23,7 @@
 		DA7A5758291D50B700C97FF5 /* AddEditPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A5757291D50B700C97FF5 /* AddEditPieceView.swift */; };
 		DAA1B2A629198E2F002C448E /* SecondaryButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */; };
 		DABF74B8291FAA0400201E61 /* PieceViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */; };
+		DACB6623291FF5B6006D868D /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB6622291FF5B6006D868D /* Authenticator.swift */; };
 		DAD1AC7C291DA3AB00792866 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1AC7B291DA3AB00792866 /* SignUpView.swift */; };
 		DAE6AB50291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */; };
 		DAFF8FE8291E75BF005DB486 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF8FE7291E75BF005DB486 /* MainView.swift */; };
@@ -47,6 +48,7 @@
 		DA7A5757291D50B700C97FF5 /* AddEditPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditPieceView.swift; sourceTree = "<group>"; };
 		DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonViewModifier.swift; sourceTree = "<group>"; };
 		DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceViewDetail.swift; sourceTree = "<group>"; };
+		DACB6622291FF5B6006D868D /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		DAD1AC7B291DA3AB00792866 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonColorViewModifier.swift; sourceTree = "<group>"; };
 		DAFF8FE7291E75BF005DB486 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				DA1E99242915C48F00155CB1 /* MockPieceDataService.swift */,
 				DAFF8FE9291EC19F005DB486 /* UserSession.swift */,
+				DACB6622291FF5B6006D868D /* Authenticator.swift */,
 			);
 			path = DataServices;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA1E99252915C48F00155CB1 /* MockPieceDataService.swift in Sources */,
+				DACB6623291FF5B6006D868D /* Authenticator.swift in Sources */,
 				DA1E99222915C3AA00155CB1 /* Piece.swift in Sources */,
 				DA4BD35029146E81006C87ED /* PieceListView.swift in Sources */,
 				DA2D3FCE290AD00A00FA2CE6 /* ContentView.swift in Sources */,

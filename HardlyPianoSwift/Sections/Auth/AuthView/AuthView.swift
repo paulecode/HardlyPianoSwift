@@ -14,8 +14,10 @@ struct AuthView: View {
 	@FocusState private var userfieldFocused: Bool
 	@FocusState private var passfieldFocused: Bool
 	@State private var isSignedIn: Bool = false
+	@EnvironmentObject var userSession: UserSession
 	
-	var authenticator: validationProtocol
+//	var authenticator: validationProtocol
+	var authenticator: authenticatorProtocol
 	
 	//Feature flags
 	let debug: Bool
@@ -51,8 +53,19 @@ struct AuthView: View {
 			
 			//LoginButton
 			Button {
-				if authenticator.signIn(usernameInput: username, passwordInput: password) {
-					isSignedIn = true
+//				if authenticator.signIn(usernameInput: username, passwordInput: password) {
+//					isSignedIn = true
+//				}
+				Task {
+					do {
+						let token = try await authenticator.signIn(username: username, password: password)
+						userSession.signIn(token: token)
+					} catch LoginError.badRequest(let message){
+						print(message)
+					} catch {
+						print(error)
+					}
+					
 				}
 			} label: {
 				Text("Login")
@@ -89,13 +102,20 @@ struct AuthView: View {
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(Color("Flat9"))
 	}
+	// let token = RestAuthenticator.signIn(username, password)
+	// if token {
+	// userSession.token = token
+	// userSessino.username = username
+	// userSession.isSignedIn = true
+	// }
 }
 
 struct AuthView_Previews: PreviewProvider {
 	
 	
 	static var previews: some View {
-		let mockAuth = MockAuthService(username: nil, password: nil)
-		AuthView(authenticator: mockAuth, debug: false)
+//		let mockAuth = MockAuthService(username: nil, password: nil)
+		let restAuth = RestAuthenticator()
+		AuthView(authenticator: restAuth, debug: false)
 	}
 }

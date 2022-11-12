@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+	@State var selectedView: Int = 7
 	@EnvironmentObject var userSession: UserSession
+	var authenticator: authenticatorProtocol
     var body: some View {
 		if userSession.isSignedIn {
-			MainView(selectedView: .constant(7))
+			MainView(selectedView: $selectedView)
 		} else {
-			SignUpView()
+			AuthView(authenticator: authenticator, debug: true)
 		}
 	}
 	
@@ -21,6 +23,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(authenticator: MockAuthService())
     }
 }
