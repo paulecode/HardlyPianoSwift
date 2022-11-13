@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
 	
+	@State var showAddTitle: Bool = false
 	@Binding var selectedView: Int
 	@EnvironmentObject var userSession: UserSession
 	var pieces: [Piece] = MockPieces().pieces
@@ -72,12 +73,18 @@ struct MainView: View {
 					Divider()
 					Button {
 						//Add Piece
+						showAddTitle = true
 					} label: {
 						Text("Add Piece")
 							.withPrimaryButtonSizeViewModifier()
 							.withPrimaryButtonColorModifier()
 							.padding()
 						//TODO Fix this
+					}
+					.sheet(isPresented: $showAddTitle) {
+						AddEditPieceView()
+							.background(.white)
+							.presentationDetents([.medium])
 					}
 					
 				}
@@ -113,6 +120,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
 	
 	static var previews: some View {
-		MainView(selectedView: .constant(7))
+		MainView(selectedView: .constant(9))
 	}
 }

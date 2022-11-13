@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AddEditPieceView: View {
-	
+
+	@Environment(\.dismiss) var dismiss
 	@State var title: String = ""
 	@State var composer: String = ""
 	@FocusState private var titleIsFocussed: Bool
@@ -22,6 +23,7 @@ struct AddEditPieceView: View {
 				Spacer()
 				Button {
 					//Cancel
+					dismiss.callAsFunction()
 				} label: {
 					Image(systemName: "x.circle.fill")
 						.foregroundColor(.gray)
@@ -30,7 +32,7 @@ struct AddEditPieceView: View {
 			}
 			.padding()
 			
-			Spacer()
+//			Spacer()
 			VStack (alignment: .leading) {
 				Text("Piece name")
 					.fontWeight(.bold)
@@ -52,7 +54,7 @@ struct AddEditPieceView: View {
 					.background(composerIsFocussed ? .black : .gray)
 			}
 			.padding()
-			Spacer()
+//			Spacer()
 			Button {
 				//Add Piece
 			} label: {
@@ -65,7 +67,7 @@ struct AddEditPieceView: View {
 
 
 		}
-		.background(Color("Flat9"))
+//		.background(Color("Flat9"))
 	}
 }
 
