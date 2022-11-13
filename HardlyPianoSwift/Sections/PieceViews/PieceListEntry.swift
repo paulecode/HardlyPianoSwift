@@ -112,7 +112,8 @@ struct PieceListEntry: View {
 								.withTertiaryButtonStyle()
 						}
 						.sheet(isPresented: $deleteSheetPresent) {
-							Text(piece.title)
+							DeletionDialog()
+								.presentationDetents([.fraction(0.25)])
 						}
 					}
 				}
