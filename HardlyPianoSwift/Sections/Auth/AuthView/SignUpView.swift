@@ -14,6 +14,9 @@ struct SignUpView: View {
 	@State private var username: String = ""
 	@State private var password: String = ""
 	@State private var repeatpassword: String = ""
+	
+	@Binding var hasAccount: Bool
+	
 	@FocusState private var userfieldFocused: Bool
 	@FocusState private var passfieldFocused: Bool
 	@FocusState private var repeatPassFocused: Bool
@@ -69,8 +72,6 @@ struct SignUpView: View {
 					.withPrimaryButtonSizeViewModifier()
 					.withPrimaryButtonColorModifier()
 					.padding(.horizontal, 16)
-				
-				
 			}
 			
 			Divider()
@@ -83,7 +84,7 @@ struct SignUpView: View {
 				.fontWeight(.bold)
 			
 			Button {
-				//Add functionality please :(
+				hasAccount.toggle()
 			} label: {
 				Text("sign in")
 					.withPrimaryButtonSizeViewModifier()
@@ -98,7 +99,7 @@ struct SignUpView: View {
 }
 
 struct SignUpView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignUpView()
-    }
+	static var previews: some View {
+		SignUpView(hasAccount: .constant(false))
+	}
 }

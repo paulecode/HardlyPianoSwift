@@ -10,17 +10,15 @@ import SwiftUI
 @main
 struct HardlyPianoSwiftApp: App {
 	@StateObject var userSession = UserSession()
+	
 	//Declare your authenticator here
 	var authenticator: authenticatorProtocol = MockAuthService()
-//	var authenticator: authenticatorProtocol = RestAuthenticator()
+	//	var authenticator: authenticatorProtocol = RestAuthenticator()
 	
-    var body: some Scene {
-        WindowGroup {
+	var body: some Scene {
+		WindowGroup {
 			ContentView(authenticator: authenticator)
 				.environmentObject(userSession)
-//			MainView(selectedView: $selectedView)
-//			AuthView(authenticator: MockAuthService(username: nil, password: nil), debug: true)
-//			PieceListView()
-        }
-    }
+		}
+	}
 }

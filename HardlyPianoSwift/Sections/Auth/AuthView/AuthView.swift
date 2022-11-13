@@ -11,12 +11,15 @@ struct AuthView: View {
 	
 	@State private var username: String = ""
 	@State private var password: String = ""
+	@State private var isSignedIn: Bool = false
+	
 	@FocusState private var userfieldFocused: Bool
 	@FocusState private var passfieldFocused: Bool
-	@State private var isSignedIn: Bool = false
+	
+	@Binding var hasAccount: Bool
+	
 	@EnvironmentObject var userSession: UserSession
 	
-//	var authenticator: validationProtocol
 	var authenticator: authenticatorProtocol
 	
 	//Feature flags
@@ -53,9 +56,6 @@ struct AuthView: View {
 			
 			//LoginButton
 			Button {
-//				if authenticator.signIn(usernameInput: username, passwordInput: password) {
-//					isSignedIn = true
-//				}
 				Task {
 					do {
 						let token = try await authenticator.signIn(username: username, password: password)
@@ -65,15 +65,12 @@ struct AuthView: View {
 					} catch {
 						print(error)
 					}
-					
 				}
 			} label: {
 				Text("Login")
 					.withPrimaryButtonSizeViewModifier()
 					.withPrimaryButtonColorModifier()
 					.padding(.horizontal, 16)
-				
-				
 			}
 			
 			Divider()
@@ -86,7 +83,7 @@ struct AuthView: View {
 				.fontWeight(.bold)
 			
 			Button {
-				//Add functionality please :(
+				hasAccount.toggle()
 			} label: {
 				Text("Create an Account")
 					.withPrimaryButtonSizeViewModifier()
@@ -102,20 +99,13 @@ struct AuthView: View {
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(Color("Flat9"))
 	}
-	// let token = RestAuthenticator.signIn(username, password)
-	// if token {
-	// userSession.token = token
-	// userSessino.username = username
-	// userSession.isSignedIn = true
-	// }
 }
 
 struct AuthView_Previews: PreviewProvider {
 	
 	
 	static var previews: some View {
-//		let mockAuth = MockAuthService(username: nil, password: nil)
 		let restAuth = RestAuthenticator()
-		AuthView(authenticator: restAuth, debug: false)
+		AuthView(hasAccount: .constant(true), authenticator: restAuth, debug: false)
 	}
 }
