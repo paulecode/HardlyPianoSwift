@@ -11,8 +11,11 @@ struct PieceListEntry: View {
 	
 	let piece: Piece
 	@State var isExpanded: Bool = false
+	@State var deleteSheetPresent: Bool = false
+	
 	@Namespace private var textAnimationNamespace
 	@Namespace private var hoursAnimationNamespace
+	
 	var body: some View {
 		
 		VStack {
@@ -103,9 +106,13 @@ struct PieceListEntry: View {
 						}
 						Button {
 							//Delete piece
+							deleteSheetPresent = true
 						} label: {
 							Text("Delete piece")
 								.withTertiaryButtonStyle()
+						}
+						.sheet(isPresented: $deleteSheetPresent) {
+							Text(piece.title)
 						}
 					}
 				}
