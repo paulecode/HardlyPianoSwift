@@ -31,7 +31,11 @@ struct ContentView: View {
 
 
 struct ContentView_Previews: PreviewProvider {
+
+	static var userSession: UserSession = UserSession()
+		
 	static var previews: some View {
 		ContentView(authenticator: MockAuthService())
+			.environmentObject(userSession)
 	}
 }
