@@ -22,6 +22,8 @@
 		DA6C0752291A4F3C0031D6FA /* PrimaryButtonSizeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6C0751291A4F3C0031D6FA /* PrimaryButtonSizeViewModifier.swift */; };
 		DA7A5758291D50B700C97FF5 /* AddEditPieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A5757291D50B700C97FF5 /* AddEditPieceView.swift */; };
 		DAA1B2A629198E2F002C448E /* SecondaryButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */; };
+		DAB03ABE29217A84001C5081 /* HardlyPianoSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB03ABD29217A84001C5081 /* HardlyPianoSwiftTests.swift */; };
+		DAB03AC529217AB5001C5081 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB03AC429217AB5001C5081 /* LoginTests.swift */; };
 		DABF74B8291FAA0400201E61 /* PieceViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */; };
 		DACB6623291FF5B6006D868D /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB6622291FF5B6006D868D /* Authenticator.swift */; };
 		DAD1AC7C291DA3AB00792866 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1AC7B291DA3AB00792866 /* SignUpView.swift */; };
@@ -32,6 +34,16 @@
 		DAFF8FE8291E75BF005DB486 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF8FE7291E75BF005DB486 /* MainView.swift */; };
 		DAFF8FEA291EC19F005DB486 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF8FE9291EC19F005DB486 /* UserSession.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DAB03ABF29217A84001C5081 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA2D3FC0290AD00A00FA2CE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA2D3FC7290AD00A00FA2CE6;
+			remoteInfo = HardlyPianoSwift;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DA1E99212915C3AA00155CB1 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
@@ -50,6 +62,9 @@
 		DA6C0751291A4F3C0031D6FA /* PrimaryButtonSizeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonSizeViewModifier.swift; sourceTree = "<group>"; };
 		DA7A5757291D50B700C97FF5 /* AddEditPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditPieceView.swift; sourceTree = "<group>"; };
 		DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonViewModifier.swift; sourceTree = "<group>"; };
+		DAB03ABB29217A84001C5081 /* HardlyPianoSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HardlyPianoSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DAB03ABD29217A84001C5081 /* HardlyPianoSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardlyPianoSwiftTests.swift; sourceTree = "<group>"; };
+		DAB03AC429217AB5001C5081 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceViewDetail.swift; sourceTree = "<group>"; };
 		DACB6622291FF5B6006D868D /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		DAD1AC7B291DA3AB00792866 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -63,6 +78,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		DA2D3FC5290AD00A00FA2CE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB03AB829217A84001C5081 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -94,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2D3FCA290AD00A00FA2CE6 /* HardlyPianoSwift */,
+				DAB03ABC29217A84001C5081 /* HardlyPianoSwiftTests */,
 				DA2D3FC9290AD00A00FA2CE6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2D3FC8290AD00A00FA2CE6 /* HardlyPianoSwift.app */,
+				DAB03ABB29217A84001C5081 /* HardlyPianoSwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +219,15 @@
 			path = PieceViews;
 			sourceTree = "<group>";
 		};
+		DAB03ABC29217A84001C5081 /* HardlyPianoSwiftTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAB03ABD29217A84001C5081 /* HardlyPianoSwiftTests.swift */,
+				DAB03AC429217AB5001C5081 /* LoginTests.swift */,
+			);
+			path = HardlyPianoSwiftTests;
+			sourceTree = "<group>";
+		};
 		DAE6AB4D2914635D005F95C1 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +268,24 @@
 			productReference = DA2D3FC8290AD00A00FA2CE6 /* HardlyPianoSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DAB03ABA29217A84001C5081 /* HardlyPianoSwiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DAB03AC329217A84001C5081 /* Build configuration list for PBXNativeTarget "HardlyPianoSwiftTests" */;
+			buildPhases = (
+				DAB03AB729217A84001C5081 /* Sources */,
+				DAB03AB829217A84001C5081 /* Frameworks */,
+				DAB03AB929217A84001C5081 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DAB03AC029217A84001C5081 /* PBXTargetDependency */,
+			);
+			name = HardlyPianoSwiftTests;
+			productName = HardlyPianoSwiftTests;
+			productReference = DAB03ABB29217A84001C5081 /* HardlyPianoSwiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -242,11 +293,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					DA2D3FC7290AD00A00FA2CE6 = {
 						CreatedOnToolsVersion = 14.0.1;
+					};
+					DAB03ABA29217A84001C5081 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = DA2D3FC7290AD00A00FA2CE6;
 					};
 				};
 			};
@@ -264,6 +319,7 @@
 			projectRoot = "";
 			targets = (
 				DA2D3FC7290AD00A00FA2CE6 /* HardlyPianoSwift */,
+				DAB03ABA29217A84001C5081 /* HardlyPianoSwiftTests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,6 +331,13 @@
 			files = (
 				DA2D3FD3290AD00C00FA2CE6 /* Preview Assets.xcassets in Resources */,
 				DA2D3FD0290AD00C00FA2CE6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DAB03AB929217A84001C5081 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,7 +373,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DAB03AB729217A84001C5081 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAB03ABE29217A84001C5081 /* HardlyPianoSwiftTests.swift in Sources */,
+				DAB03AC529217AB5001C5081 /* LoginTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DAB03AC029217A84001C5081 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA2D3FC7290AD00A00FA2CE6 /* HardlyPianoSwift */;
+			targetProxy = DAB03ABF29217A84001C5081 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DA2D3FD4290AD00C00FA2CE6 /* Debug */ = {
@@ -485,6 +565,42 @@
 			};
 			name = Release;
 		};
+		DAB03AC129217A84001C5081 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = paulecode.HardlyPianoSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HardlyPianoSwift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HardlyPianoSwift";
+			};
+			name = Debug;
+		};
+		DAB03AC229217A84001C5081 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = paulecode.HardlyPianoSwiftTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HardlyPianoSwift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HardlyPianoSwift";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -502,6 +618,15 @@
 			buildConfigurations = (
 				DA2D3FD7290AD00C00FA2CE6 /* Debug */,
 				DA2D3FD8290AD00C00FA2CE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DAB03AC329217A84001C5081 /* Build configuration list for PBXNativeTarget "HardlyPianoSwiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DAB03AC129217A84001C5081 /* Debug */,
+				DAB03AC229217A84001C5081 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
