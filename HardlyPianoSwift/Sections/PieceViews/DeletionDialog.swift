@@ -9,10 +9,12 @@ import SwiftUI
 
 struct DeletionDialog: View {
 	@Environment(\.dismiss) var dismiss
+	let piece: Piece
     var body: some View {
 		VStack {
-			Text("Are you sure you want to delete this piece?")
+			Text("Are you sure you want to delete " + piece.title + "?")
 				.font(.headline)
+				.multilineTextAlignment(.center)
 			
 			Button {
 				//Delete handler
@@ -38,6 +40,7 @@ struct DeletionDialog: View {
 
 struct DeletionDialog_Previews: PreviewProvider {
     static var previews: some View {
-        DeletionDialog()
+		let previewPiece: Piece = Piece(mongoID: "104CET", title: "Etude Op. 10 No. 4", composer: "Chopin", practiceTime: 40)
+        DeletionDialog(piece: previewPiece)
     }
 }

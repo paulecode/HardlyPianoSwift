@@ -75,9 +75,7 @@ struct PieceListEntry: View {
 								.fontWeight(.bold)
 						}
 						.frame(maxWidth: .infinity, alignment: .leading)
-						//				.border(.blue)
 					}
-					//			.border(.cyan)
 					
 					Button {
 						//Practice
@@ -112,7 +110,7 @@ struct PieceListEntry: View {
 								.withTertiaryButtonStyle()
 						}
 						.sheet(isPresented: $deleteSheetPresent) {
-							DeletionDialog()
+							DeletionDialog(piece: piece)
 								.presentationDetents([.fraction(0.25)])
 						}
 					}
