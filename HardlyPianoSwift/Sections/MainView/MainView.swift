@@ -31,16 +31,6 @@ struct MainView: View {
 					.padding(.horizontal, 24)
 					PieceViewSpecial(title: "Nocturne", composer: "Chopin", practice: 5)
 						.padding(.horizontal, 24)
-					Button {
-						userSession.signOut()
-					} label: {
-						Text("sign out")
-							.withPrimaryButtonSizeViewModifier()
-							.withPrimaryButtonColorModifier()
-							.padding(.horizontal, 16)
-						
-					}
-					
 				}
 				.frame(maxWidth: .infinity, maxHeight: .infinity)
 				.background(.clear)
@@ -96,6 +86,22 @@ struct MainView: View {
 					Text("Piece List")
 				}
 				.tag(9)
+				
+				//tmp area
+				Button {
+					userSession.signOut()
+				} label: {
+					Text("sign out")
+						.withPrimaryButtonSizeViewModifier()
+						.withPrimaryButtonColorModifier()
+						.padding(.horizontal, 16)
+				}
+				.tabItem {
+					Text("Logout")
+				}
+				.tag(6)
+				
+				//tmp area
 			}
 			.background(Color("Flat" + selectedView.description))
 			.animation(.easeInOut, value: selectedView)
@@ -107,6 +113,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
 	
 	static var previews: some View {
-		MainView(selectedView: .constant(9))
+		MainView(selectedView: .constant(7))
 	}
 }

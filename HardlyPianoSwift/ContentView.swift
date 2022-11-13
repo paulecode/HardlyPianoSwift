@@ -23,7 +23,7 @@ struct ContentView: View {
 			if hasAccount {
 				AuthView(hasAccount: $hasAccount, authenticator: authenticator, debug: true)
 			} else {
-				SignUpView(hasAccount: $hasAccount)
+				SignUpView(authenticator: authenticator, hasAccount: $hasAccount)
 			}
 		}
 	}

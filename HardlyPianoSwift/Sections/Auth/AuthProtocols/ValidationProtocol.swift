@@ -9,4 +9,6 @@ import Foundation
 
 protocol authenticatorProtocol {
 	func signIn(username: String, password: String) async throws -> String
+	
+	func signUp(username: String, password: String) async throws -> Bool
 }

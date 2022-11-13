@@ -105,7 +105,8 @@ struct AuthView_Previews: PreviewProvider {
 	
 	
 	static var previews: some View {
-		let restAuth = RestAuthenticator()
-		AuthView(hasAccount: .constant(true), authenticator: restAuth, debug: false)
+//		let restAuth: authenticatorProtocol = RestAuthenticator()
+		let mockAuth: authenticatorProtocol = MockAuthService()
+		AuthView(hasAccount: .constant(true), authenticator: mockAuth, debug: false)
 	}
 }

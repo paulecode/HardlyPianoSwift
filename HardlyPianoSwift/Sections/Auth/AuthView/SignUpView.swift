@@ -11,6 +11,8 @@ struct SignUpView: View {
 	
 	@EnvironmentObject var userSession: UserSession
 	
+	var authenticator: authenticatorProtocol
+	
 	@State private var username: String = ""
 	@State private var password: String = ""
 	@State private var repeatpassword: String = ""
@@ -66,7 +68,22 @@ struct SignUpView: View {
 			.padding()
 			//LoginButton
 			Button {
-				
+				Task {
+					if (password == repeatpassword) {
+						//attempt sign up
+						do {
+							if try await authenticator.signUp(username: username, password: password) {
+								//attempt sign in
+								let token: String = try await authenticator.signIn(username: username, password: password)
+								userSession.signIn(token: token)
+							}
+						} catch {
+							
+						}
+					} else {
+						//catch error
+					}
+				}
 			} label: {
 				Text("sign up")
 					.withPrimaryButtonSizeViewModifier()
@@ -100,6 +117,7 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
 	static var previews: some View {
-		SignUpView(hasAccount: .constant(false))
+		let mockAuth: authenticatorProtocol = MockAuthService()
+		SignUpView(authenticator: mockAuth, hasAccount: .constant(false))
 	}
 }

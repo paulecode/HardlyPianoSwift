@@ -17,4 +17,8 @@ class MockAuthService: authenticatorProtocol {
 		}
 	}
 	
+	func signUp(username: String, password: String) throws -> Bool {
+		if (username == "irakli") { return true } else { return false }
+	}
+	
 }
