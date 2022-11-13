@@ -25,6 +25,7 @@
 		DABF74B8291FAA0400201E61 /* PieceViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */; };
 		DACB6623291FF5B6006D868D /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB6622291FF5B6006D868D /* Authenticator.swift */; };
 		DAD1AC7C291DA3AB00792866 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1AC7B291DA3AB00792866 /* SignUpView.swift */; };
+		DAD83F0C292143DB009298BC /* TertiaryButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD83F0B292143DB009298BC /* TertiaryButtonModifier.swift */; };
 		DAE6AB50291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */; };
 		DAFF8FE8291E75BF005DB486 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF8FE7291E75BF005DB486 /* MainView.swift */; };
 		DAFF8FEA291EC19F005DB486 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFF8FE9291EC19F005DB486 /* UserSession.swift */; };
@@ -50,6 +51,7 @@
 		DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceViewDetail.swift; sourceTree = "<group>"; };
 		DACB6622291FF5B6006D868D /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		DAD1AC7B291DA3AB00792866 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		DAD83F0B292143DB009298BC /* TertiaryButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TertiaryButtonModifier.swift; sourceTree = "<group>"; };
 		DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonColorViewModifier.swift; sourceTree = "<group>"; };
 		DAFF8FE7291E75BF005DB486 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DAFF8FE9291EC19F005DB486 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				DAE6AB4F291464C3005F95C1 /* PrimaryButtonColorViewModifier.swift */,
 				DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */,
 				DA6C0751291A4F3C0031D6FA /* PrimaryButtonSizeViewModifier.swift */,
+				DAD83F0B292143DB009298BC /* TertiaryButtonModifier.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				DA4BD35029146E81006C87ED /* PieceListView.swift in Sources */,
 				DA2D3FCE290AD00A00FA2CE6 /* ContentView.swift in Sources */,
 				DA2D3FE3290AE66000FA2CE6 /* mockValidate.swift in Sources */,
+				DAD83F0C292143DB009298BC /* TertiaryButtonModifier.swift in Sources */,
 				DAA1B2A629198E2F002C448E /* SecondaryButtonViewModifier.swift in Sources */,
 				DA2D3FCC290AD00A00FA2CE6 /* HardlyPianoSwiftApp.swift in Sources */,
 				DA7A5758291D50B700C97FF5 /* AddEditPieceView.swift in Sources */,

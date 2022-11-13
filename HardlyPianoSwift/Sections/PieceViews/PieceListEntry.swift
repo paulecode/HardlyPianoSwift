@@ -94,19 +94,20 @@ struct PieceListEntry: View {
 					
 					Divider()
 					
-					Button {
-						//Edit piece
-					} label: {
-						Text("Edit piece details")
+					VStack (spacing: 0){
+						Button {
+							//Edit piece
+						} label: {
+							Text("Edit piece details")
+								.withTertiaryButtonStyle()
+						}
+						Button {
+							//Delete piece
+						} label: {
+							Text("Delete piece")
+								.withTertiaryButtonStyle()
+						}
 					}
-					
-					Button {
-						//Delete piece
-					} label: {
-						Text("Delete piece")
-					}
-					//			.border(.yellow)
-					
 				}
 			}
 		}
@@ -131,7 +132,7 @@ struct PieceListEntry: View {
 
 struct PieceListEntry_Previews: PreviewProvider {
 	static var previews: some View {
-	let previewPiece: Piece = Piece(mongoID: "104CET", title: "Etude Op. 10 No. 4", composer: "Chopin", practiceTime: 40)
-		PieceListEntry(piece: previewPiece)
+		let previewPiece: Piece = Piece(mongoID: "104CET", title: "Etude Op. 10 No. 4", composer: "Chopin", practiceTime: 40)
+		PieceListEntry(piece: previewPiece, isExpanded: true)
 	}
 }
