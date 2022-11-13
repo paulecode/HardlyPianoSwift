@@ -24,6 +24,7 @@
 		DAA1B2A629198E2F002C448E /* SecondaryButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */; };
 		DAB03ABE29217A84001C5081 /* HardlyPianoSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB03ABD29217A84001C5081 /* HardlyPianoSwiftTests.swift */; };
 		DAB03AC529217AB5001C5081 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB03AC429217AB5001C5081 /* LoginTests.swift */; };
+		DAB03AC729217F68001C5081 /* validationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB03AC629217F68001C5081 /* validationTests.swift */; };
 		DABF74B8291FAA0400201E61 /* PieceViewDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */; };
 		DACB6623291FF5B6006D868D /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACB6622291FF5B6006D868D /* Authenticator.swift */; };
 		DAD1AC7C291DA3AB00792866 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD1AC7B291DA3AB00792866 /* SignUpView.swift */; };
@@ -65,6 +66,7 @@
 		DAB03ABB29217A84001C5081 /* HardlyPianoSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HardlyPianoSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB03ABD29217A84001C5081 /* HardlyPianoSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardlyPianoSwiftTests.swift; sourceTree = "<group>"; };
 		DAB03AC429217AB5001C5081 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		DAB03AC629217F68001C5081 /* validationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = validationTests.swift; sourceTree = "<group>"; };
 		DABF74B7291FAA0400201E61 /* PieceViewDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceViewDetail.swift; sourceTree = "<group>"; };
 		DACB6622291FF5B6006D868D /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		DAD1AC7B291DA3AB00792866 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				DAB03ABD29217A84001C5081 /* HardlyPianoSwiftTests.swift */,
 				DAB03AC429217AB5001C5081 /* LoginTests.swift */,
+				DAB03AC629217F68001C5081 /* validationTests.swift */,
 			);
 			path = HardlyPianoSwiftTests;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB03ABE29217A84001C5081 /* HardlyPianoSwiftTests.swift in Sources */,
+				DAB03AC729217F68001C5081 /* validationTests.swift in Sources */,
 				DAB03AC529217AB5001C5081 /* LoginTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
