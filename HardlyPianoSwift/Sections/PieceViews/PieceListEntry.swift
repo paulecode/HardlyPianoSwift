@@ -9,33 +9,40 @@ import SwiftUI
 
 struct PieceListEntry: View {
 	
-	let title: String
-	let practice: Int
+	let piece: Piece
 	@State var isExpanded: Bool = false
+	@Namespace private var textAnimationNamespace
+	@Namespace private var hoursAnimationNamespace
 	var body: some View {
 		
 		VStack {
 			HStack {
 				VStack (alignment: .leading, spacing: 8){
-					Text(title)
-						.font(.headline)
-						.fontWeight(.bold)
-					Text(practice.description + " hours")
-						.font(.subheadline)
-						.foregroundColor(Color("Flat3"))
-						.fontWeight(.medium)
+					
+					if !isExpanded {
+						Text(piece.title)
+							.font(.headline)
+							.fontWeight(.bold)
+						Text(piece.practiceTime.description + " hours")
+							.font(.subheadline)
+							.foregroundColor(Color("Flat3"))
+							.fontWeight(.medium)
+					}
 				}
 				Spacer()
 				Image(systemName: "arrow.forward")
+					.rotationEffect(Angle(degrees: isExpanded ? 90.0 : 0.0), anchor: .center)
+				
 				
 			}
 			if isExpanded {
 				VStack (spacing: 16){
 					VStack (alignment: .leading, spacing: 8) {
-						Text(title)
+						Text(piece.title)
 							.font(.title2)
 							.fontWeight(.bold)
-						Text("J. S. Bach")
+							.matchedGeometryEffect(id: "titleMG", in: textAnimationNamespace)
+						Text(piece.composer)
 							.font(.subheadline)
 							.fontWeight(.medium)
 					}
@@ -48,7 +55,7 @@ struct PieceListEntry: View {
 								.font(.subheadline)
 								.foregroundColor(Color("Flat4"))
 								.fontWeight(.medium)
-							Text("4 hours")
+							Text(piece.practiceTime.description + " hours")
 								.font(.headline)
 								.fontWeight(.bold)
 						}
@@ -59,6 +66,7 @@ struct PieceListEntry: View {
 								.font(.subheadline)
 								.foregroundColor(Color("Flat4"))
 								.fontWeight(.medium)
+							//TODO Implement backend Endpoint
 							Text("2 weeks ago")
 								.font(.headline)
 								.fontWeight(.bold)
@@ -110,12 +118,12 @@ struct PieceListEntry: View {
 		.onTapGesture {
 			expandSheet()
 		}
-
+		
 	}
 	
 	func expandSheet() {
 		
-		withAnimation {
+		withAnimation(.easeInOut) {
 			isExpanded.toggle()
 		}
 	}
@@ -123,6 +131,7 @@ struct PieceListEntry: View {
 
 struct PieceListEntry_Previews: PreviewProvider {
 	static var previews: some View {
-		PieceListEntry(title: "Apassionata", practice: 5)
+	let previewPiece: Piece = Piece(mongoID: "104CET", title: "Etude Op. 10 No. 4", composer: "Chopin", practiceTime: 40)
+		PieceListEntry(piece: previewPiece)
 	}
 }

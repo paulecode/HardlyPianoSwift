@@ -43,7 +43,7 @@ struct PieceListView: View {
 //								PieceListEntry(title: piece.title, practice: piece.practiceTime)
 //							}
 //							.buttonStyle(PlainButtonStyle())
-							PieceListEntry(title: piece.title, practice: piece.practiceTime)
+							PieceListEntry(piece: piece)
 
 						}
 					}
