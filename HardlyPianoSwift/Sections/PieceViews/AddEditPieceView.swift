@@ -10,10 +10,12 @@ import SwiftUI
 struct AddEditPieceView: View {
 	
 	@Environment(\.dismiss) var dismiss
+	
 	@State var title: String = ""
 	@State var composer: String = ""
 	@State var isLoading: Bool = false
 	@State var doneLoading: Bool = false
+	@State var edit: Bool = false
 	
 	@FocusState private var titleIsFocussed: Bool
 	@FocusState private var composerIsFocussed: Bool
@@ -40,7 +42,7 @@ struct AddEditPieceView: View {
 			} else {
 				VStack {
 					HStack {
-						Text("Add or Edit Piece")
+						Text(!edit ? "Add piece" : "Edit piece" )
 							.font(.title)
 						Spacer()
 						Button {
@@ -87,7 +89,11 @@ struct AddEditPieceView: View {
 								titleIsFocussed = false
 								composerIsFocussed = false
 								do {
-									_ = try await pieceService.postPiece(title: title, composer: composer)
+									if edit {
+										_ = try await pieceService.postPiece(title: title, composer: composer)
+									} else {
+										
+									}
 									try await Task.sleep(for: .seconds(1))
 									withAnimation {
 										doneLoading = true
@@ -104,7 +110,7 @@ struct AddEditPieceView: View {
 							//Tell em to add info
 						}
 					} label: {
-						Text("Add Piece")
+						Text(!edit ? "Add piece" : "Save changes")
 							.withPrimaryButtonSizeViewModifier()
 							.withPrimaryButtonColorModifier()
 							.padding()

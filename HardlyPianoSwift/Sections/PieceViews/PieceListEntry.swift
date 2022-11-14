@@ -15,6 +15,7 @@ struct PieceListEntry: View {
 	@Binding var pieces: [Piece]
 	@State var isExpanded: Bool = false
 	@State var deleteSheetPresent: Bool = false
+	@State var editSheetPresent: Bool = false
 	
 	@Namespace private var textAnimationNamespace
 	@Namespace private var hoursAnimationNamespace
@@ -101,10 +102,18 @@ struct PieceListEntry: View {
 					VStack (spacing: 0){
 						Button {
 							//Edit piece
+							editSheetPresent = true
 						} label: {
 							Text("Edit piece details")
 								.withTertiaryButtonStyle()
 						}
+						.sheet(isPresented: $editSheetPresent, onDismiss: {
+							//onDismiss
+						}) {
+							AddEditPieceView(title: piece.title, composer: piece.composer, edit: true, pieceService: pieceService)
+								.presentationDetents([.medium])
+						}
+						
 						Button {
 							//Delete piece
 							deleteSheetPresent = true
