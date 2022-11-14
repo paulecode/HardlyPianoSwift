@@ -18,7 +18,6 @@ struct AddEditPieceView: View {
 	@FocusState private var titleIsFocussed: Bool
 	@FocusState private var composerIsFocussed: Bool
 	
-	
 	var pieceService: pieceServiceProtocol
 	
 	//TODO Make Textfields mandatory.

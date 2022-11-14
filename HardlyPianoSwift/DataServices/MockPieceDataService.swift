@@ -14,16 +14,16 @@ protocol pieceServiceProtocol {
 	func getAllPieces() async throws -> [Piece]
 	
 	func postPiece(title: String, composer: String) async throws -> Piece
-//
-//	func deletePiece(piece: Piece) async throws -> Bool
-//
-//	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece
+
+	func deletePiece(piece: Piece) async throws -> Bool
+
+	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece
 	
 }
 
 class MockPieces: ObservableObject, pieceServiceProtocol {
 	
-	var token: String
+	var token: String 
 	
 	init() {
 		self.token = "validtoken"
