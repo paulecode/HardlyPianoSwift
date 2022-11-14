@@ -10,6 +10,9 @@ import SwiftUI
 struct PieceListEntry: View {
 	
 	let piece: Piece
+	var pieceService: pieceServiceProtocol
+	
+	@Binding var pieces: [Piece]
 	@State var isExpanded: Bool = false
 	@State var deleteSheetPresent: Bool = false
 	
@@ -109,8 +112,10 @@ struct PieceListEntry: View {
 							Text("Delete piece")
 								.withTertiaryButtonStyle()
 						}
-						.sheet(isPresented: $deleteSheetPresent) {
-							DeletionDialog(piece: piece)
+						.sheet(isPresented: $deleteSheetPresent, onDismiss: {
+							pieces = pieces.filter({ $0 != piece })
+						}) {
+							DeletionDialog(pieceService: pieceService, piece: piece)
 								.presentationDetents([.fraction(0.25)])
 						}
 					}
@@ -139,6 +144,6 @@ struct PieceListEntry: View {
 struct PieceListEntry_Previews: PreviewProvider {
 	static var previews: some View {
 		let previewPiece: Piece = Piece(mongoID: "104CET", title: "Etude Op. 10 No. 4", composer: "Chopin", practiceTime: 40)
-		PieceListEntry(piece: previewPiece, isExpanded: true)
+		PieceListEntry(piece: previewPiece, pieceService: MockPieces(), pieces: .constant([previewPiece]), isExpanded: true)
 	}
 }

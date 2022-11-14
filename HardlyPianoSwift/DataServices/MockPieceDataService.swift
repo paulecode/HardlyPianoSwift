@@ -17,7 +17,7 @@ protocol pieceServiceProtocol {
 
 	func deletePiece(piece: Piece) async throws -> Bool
 
-	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece
+//	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece
 	
 }
 

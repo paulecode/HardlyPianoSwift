@@ -45,7 +45,7 @@ struct MainView: View {
 				
 				//TabView Page 2
 				VStack (spacing: 16) {
-					VStack (spacing: 4){
+					VStack (spacing: 4) {
 						Text("Refresh memory")
 							.font(.title3)
 							.fontWeight(.bold)
@@ -69,10 +69,8 @@ struct MainView: View {
 				//TabView Page 3
 				VStack (spacing: 0){
 					
-					PieceListView(
-						background: Color("Flat" + selectedView.description)
-						, pieces: pieces
-					)
+					PieceListView(background: Color("Flat" + selectedView.description), pieceService: pieceService, pieces: $pieces)
+					
 					Divider()
 					Button {
 						//Add Piece
@@ -131,7 +129,7 @@ struct MainView: View {
 			.tabViewStyle(.page)
 		}
 		.onAppear {
-			pieceService.setToken(token: userSession.token!)
+			pieceService.setToken(token: userSession.token ?? "PreviewToken")
 		}
 		.task {
 				await loadData()
@@ -151,8 +149,14 @@ struct MainView: View {
 }
 
 struct MainView_Previews: PreviewProvider {
+
+	static var userSession: UserSession = UserSession()
+
 	
+
 	static var previews: some View {
-		MainView(selectedView: .constant(9), pieceService: MockPieces())
+		
+		MainView(selectedView: .constant(7), pieceService: MockPieces())
+			.environmentObject(UserSession()) //<- Insanity
 	}
 }

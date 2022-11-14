@@ -25,9 +25,6 @@ class RestPieceService: pieceServiceProtocol {
 	
 	func getAllPieces() async throws -> [Piece] {
 		
-		//		print(UserSession().token ?? "No token")
-		print("Token from get: " + token)
-		
 		guard let localurl = URL(string: "http://localhost:3000/pieces") else {
 			print("Invalid URL")
 			throw RequestError.BadRequest
@@ -91,10 +88,33 @@ class RestPieceService: pieceServiceProtocol {
 		throw LoginError.serverOffline
 		
 	}
-	//
-	//	func deletePiece(piece: Piece) async throws -> Bool {
-	//		<#code#>
-	//	}
+	
+	func deletePiece(piece: Piece) async throws -> Bool {
+		
+		
+		
+		guard let localurl = URL(string: "http://localhost:3000/pieces/" + piece.mongoID) else {
+			print("Invalid URL")
+			throw RequestError.BadRequest
+		}
+		
+		var request = URLRequest(url: localurl)
+		request.httpMethod = "DELETE"
+		request.setValue(token, forHTTPHeaderField: "Auth-Token")
+		let response = try await URLSession.shared.data(for: request)
+		
+		if let statusResponse = response.1 as? HTTPURLResponse {
+			if (statusResponse.statusCode == 200) {
+//				self.pieces = pieces.filter({ $0 != piece})
+				return true
+			} else {
+				return false
+			}
+		} else {
+			throw RequestError.BadRequest
+			//TODO Fix specify error
+		}
+	}
 	//
 	//	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece {
 	//		<#code#>

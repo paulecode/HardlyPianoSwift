@@ -10,8 +10,9 @@ import SwiftUI
 struct PieceListView: View {
 	
 	let background: Color
+	let pieceService: pieceServiceProtocol
 	
-	var pieces: [Piece]
+	@Binding var pieces: [Piece]
 	//	@State var pathView: Piece
 	
 	//	var sortedPieces
@@ -43,7 +44,7 @@ struct PieceListView: View {
 //								PieceListEntry(title: piece.title, practice: piece.practiceTime)
 //							}
 //							.buttonStyle(PlainButtonStyle())
-							PieceListEntry(piece: piece)
+							PieceListEntry(piece: piece, pieceService: pieceService, pieces: $pieces)
 
 						}
 					}
@@ -60,6 +61,6 @@ struct PieceListView: View {
 
 struct PieceListView_Previews: PreviewProvider {
 	static var previews: some View {
-		PieceListView(background: .white, pieces: MockPieces().pieces)
+		PieceListView(background: .white, pieceService: MockPieces(), pieces: .constant(MockPieces().pieces))
 	}
 }
