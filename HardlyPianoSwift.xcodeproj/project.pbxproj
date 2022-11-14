@@ -16,6 +16,7 @@
 		DA2D3FE1290AE61500FA2CE6 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FE0290AE61500FA2CE6 /* AuthView.swift */; };
 		DA2D3FE3290AE66000FA2CE6 /* mockValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FE2290AE66000FA2CE6 /* mockValidate.swift */; };
 		DA2D3FE5290B2A2400FA2CE6 /* ValidationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2D3FE4290B2A2400FA2CE6 /* ValidationProtocol.swift */; };
+		DA4B45932922AD0B00F6BF99 /* ReverseSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4B45922922AD0B00F6BF99 /* ReverseSlide.swift */; };
 		DA4BD34C29146B14006C87ED /* PieceViewSpecial.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BD34B29146B14006C87ED /* PieceViewSpecial.swift */; };
 		DA4BD35029146E81006C87ED /* PieceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BD34F29146E81006C87ED /* PieceListView.swift */; };
 		DA4BD35429146EC4006C87ED /* PieceListEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4BD35329146EC4006C87ED /* PieceListEntry.swift */; };
@@ -57,6 +58,7 @@
 		DA2D3FE0290AE61500FA2CE6 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		DA2D3FE2290AE66000FA2CE6 /* mockValidate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mockValidate.swift; sourceTree = "<group>"; };
 		DA2D3FE4290B2A2400FA2CE6 /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
+		DA4B45922922AD0B00F6BF99 /* ReverseSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverseSlide.swift; sourceTree = "<group>"; };
 		DA4BD34B29146B14006C87ED /* PieceViewSpecial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceViewSpecial.swift; sourceTree = "<group>"; };
 		DA4BD34F29146E81006C87ED /* PieceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceListView.swift; sourceTree = "<group>"; };
 		DA4BD35329146EC4006C87ED /* PieceListEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceListEntry.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		DA2D3FCA290AD00A00FA2CE6 /* HardlyPianoSwift */ = {
 			isa = PBXGroup;
 			children = (
+				DA4B45912922ACF600F6BF99 /* Animations */,
 				DA1E99232915C46800155CB1 /* DataServices */,
 				DA1E99202915C39900155CB1 /* Models */,
 				DAE6AB4D2914635D005F95C1 /* ViewModifiers */,
@@ -198,6 +201,14 @@
 				DA2D3FE2290AE66000FA2CE6 /* mockValidate.swift */,
 			);
 			path = AuthFunctions;
+			sourceTree = "<group>";
+		};
+		DA4B45912922ACF600F6BF99 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				DA4B45922922AD0B00F6BF99 /* ReverseSlide.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		DA4BD34929146ABE006C87ED /* MainView */ = {
@@ -357,6 +368,7 @@
 				DAD83F0E29214999009298BC /* DeletionDialog.swift in Sources */,
 				DA4BD35029146E81006C87ED /* PieceListView.swift in Sources */,
 				DA2D3FCE290AD00A00FA2CE6 /* ContentView.swift in Sources */,
+				DA4B45932922AD0B00F6BF99 /* ReverseSlide.swift in Sources */,
 				DA2D3FE3290AE66000FA2CE6 /* mockValidate.swift in Sources */,
 				DAD83F0C292143DB009298BC /* TertiaryButtonModifier.swift in Sources */,
 				DAA1B2A629198E2F002C448E /* SecondaryButtonViewModifier.swift in Sources */,

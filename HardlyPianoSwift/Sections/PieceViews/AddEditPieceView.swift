@@ -31,7 +31,7 @@ struct AddEditPieceView: View {
 					.foregroundColor(Color("Nocturne3"))
 					.font(.system(size: 60))
 					.frame(maxWidth: .infinity, maxHeight: .infinity)
-					.transition(.slide)
+					.transition(.reverseSlide)
 			} else {
 				VStack {
 					HStack {
@@ -104,7 +104,7 @@ struct AddEditPieceView: View {
 						//TODO Add Loading View Modifier
 					}
 				}
-				.transition(.slide)
+				.transition(.reverseSlide)
 				.frame(maxHeight: .infinity)
 			}
 		}
