@@ -11,7 +11,7 @@ struct PieceListView: View {
 	
 	let background: Color
 	
-	@State var pieces: [Piece] = MockPieces().pieces
+	var pieces: [Piece]
 	//	@State var pathView: Piece
 	
 	//	var sortedPieces
@@ -60,6 +60,6 @@ struct PieceListView: View {
 
 struct PieceListView_Previews: PreviewProvider {
 	static var previews: some View {
-		PieceListView(background: .white)
+		PieceListView(background: .white, pieces: MockPieces().pieces)
 	}
 }

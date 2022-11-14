@@ -12,7 +12,9 @@ struct MainView: View {
 	@State var showAddTitle: Bool = false
 	@Binding var selectedView: Int
 	@EnvironmentObject var userSession: UserSession
-	var pieces: [Piece] = MockPieces().pieces
+	
+	var pieceService: pieceServiceProtocol
+	@State var pieces: [Piece] = []
 	
 	var body: some View {
 		ZStack {
@@ -69,6 +71,7 @@ struct MainView: View {
 					
 					PieceListView(
 						background: Color("Flat" + selectedView.description)
+						, pieces: pieces
 					)
 					Divider()
 					Button {
@@ -81,10 +84,23 @@ struct MainView: View {
 							.padding()
 						//TODO Fix this
 					}
-					.sheet(isPresented: $showAddTitle) {
-						AddEditPieceView()
-							.background(.white)
+					.sheet(isPresented: $showAddTitle, onDismiss: {
+						Task {
+							await loadData()
+						}
+					}) {
+						AddEditPieceView(pieceService: pieceService)
+							.background(.ultraThinMaterial)
 							.presentationDetents([.medium])
+							.onAppear{
+								guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+									  let controller = windowScene.windows.first?.rootViewController?.presentedViewController
+								else {
+									return
+								}
+								controller.view.backgroundColor = .clear
+							}
+						
 					}
 					
 				}
@@ -114,12 +130,26 @@ struct MainView: View {
 			.animation(.easeInOut, value: selectedView)
 			.tabViewStyle(.page)
 		}
+		.task {
+			await loadData()
+		}
+		.refreshable {
+			await loadData()
+		}
+	}
+	
+	func loadData() async{
+		do {
+			pieces = try await pieceService.getAllPieces()
+		} catch {
+			//ErrorHandling
+		}
 	}
 }
 
 struct MainView_Previews: PreviewProvider {
 	
 	static var previews: some View {
-		MainView(selectedView: .constant(9))
+		MainView(selectedView: .constant(9), pieceService: MockPieces())
 	}
 }

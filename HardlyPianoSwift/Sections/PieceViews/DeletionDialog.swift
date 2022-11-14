@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DeletionDialog: View {
+	
 	@Environment(\.dismiss) var dismiss
 	let piece: Piece
     var body: some View {

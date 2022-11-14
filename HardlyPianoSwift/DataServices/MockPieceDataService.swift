@@ -7,8 +7,20 @@
 
 import Foundation
 
-class MockPieces {
-	var pieces: [Piece] = [
+protocol pieceServiceProtocol {
+	
+	func getAllPieces() async throws -> [Piece]
+	
+	func postPiece(title: String, composer: String) async throws -> Piece
+	
+	func deletePiece(piece: Piece) async throws -> Bool
+	
+	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece
+	
+}
+
+class MockPieces: ObservableObject, pieceServiceProtocol {
+	@Published var pieces: [Piece] = [
 	Piece(
 		mongoID: "632b4856fa42ef9537d9b375",
 		title: "Moonlight Sonata Mov. 1",
@@ -46,4 +58,25 @@ class MockPieces {
 		practiceTime: 1
 	),
 	]
+	
+	func getAllPieces() async throws -> [Piece] {
+		return pieces
+	}
+	
+	func postPiece(title: String, composer: String) async throws -> Piece {
+		let newPiece = Piece(mongoID: UUID().description, title: title, composer: composer, practiceTime: 0)
+		pieces.append(newPiece)
+		return newPiece
+	}
+	
+	func deletePiece(piece: Piece) async throws -> Bool {
+		pieces = pieces.filter({ $0 != piece})
+		return true
+	}
+	
+	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece {
+		//Check what changed
+		let newPiece = Piece(mongoID: oldPiece.mongoID, title: title ?? oldPiece.title, composer: composer ?? oldPiece.composer, practiceTime: oldPiece.practiceTime)
+		return newPiece
+	}
 }

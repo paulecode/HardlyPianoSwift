@@ -13,11 +13,14 @@ struct HardlyPianoSwiftApp: App {
 	
 	//Declare your authenticator here
 	var authenticator: authenticatorProtocol = MockAuthService()
-//	var authenticator: authenticatorProtocol = RestAuthenticator()
+	//	var authenticator: authenticatorProtocol = RestAuthenticator()
+	
+	//Declare your pieceService here
+	var pieceService: pieceServiceProtocol = MockPieces()
 	
 	var body: some Scene {
 		WindowGroup {
-			ContentView(authenticator: authenticator)
+			ContentView(pieceService: pieceService, authenticator: authenticator)
 				.environmentObject(userSession)
 		}
 	}

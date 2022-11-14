@@ -14,11 +14,12 @@ struct ContentView: View {
 	
 	@EnvironmentObject var userSession: UserSession
 	
+	var pieceService: pieceServiceProtocol
 	var authenticator: authenticatorProtocol
 	
 	var body: some View {
 		if userSession.isSignedIn {
-			MainView(selectedView: $selectedView)
+			MainView(selectedView: $selectedView, pieceService: pieceService)
 		} else {
 			if hasAccount {
 				AuthView(hasAccount: $hasAccount, authenticator: authenticator, debug: true)
@@ -35,7 +36,7 @@ struct ContentView_Previews: PreviewProvider {
 	static var userSession: UserSession = UserSession()
 		
 	static var previews: some View {
-		ContentView(authenticator: MockAuthService())
+		ContentView(pieceService: MockPieces(), authenticator: MockAuthService())
 			.environmentObject(userSession)
 	}
 }
