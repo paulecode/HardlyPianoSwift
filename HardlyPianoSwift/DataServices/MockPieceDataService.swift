@@ -9,17 +9,25 @@ import Foundation
 
 protocol pieceServiceProtocol {
 	
+	func setToken(token: String)
+	
 	func getAllPieces() async throws -> [Piece]
 	
 	func postPiece(title: String, composer: String) async throws -> Piece
-	
-	func deletePiece(piece: Piece) async throws -> Bool
-	
-	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece
+//
+//	func deletePiece(piece: Piece) async throws -> Bool
+//
+//	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece
 	
 }
 
 class MockPieces: ObservableObject, pieceServiceProtocol {
+	
+	var token: String
+	
+	init() {
+		self.token = "validtoken"
+	}
 	@Published var pieces: [Piece] = [
 	Piece(
 		mongoID: "632b4856fa42ef9537d9b375",
@@ -58,6 +66,10 @@ class MockPieces: ObservableObject, pieceServiceProtocol {
 		practiceTime: 1
 	),
 	]
+	
+	func setToken(token: String) {
+		self.token = token
+	}
 	
 	func getAllPieces() async throws -> [Piece] {
 		return pieces

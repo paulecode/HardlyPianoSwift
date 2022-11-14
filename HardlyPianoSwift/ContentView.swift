@@ -13,8 +13,10 @@ struct ContentView: View {
 	@State var hasAccount: Bool = true
 	
 	@EnvironmentObject var userSession: UserSession
+
+	var pieceService: pieceServiceProtocol = RestPieceService()
 	
-	var pieceService: pieceServiceProtocol
+//	var pieceService: pieceServiceProtocol
 	var authenticator: authenticatorProtocol
 	
 	var body: some View {
@@ -29,6 +31,7 @@ struct ContentView: View {
 		}
 	}
 }
+
 
 
 struct ContentView_Previews: PreviewProvider {

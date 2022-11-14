@@ -100,7 +100,7 @@ struct MainView: View {
 								}
 								controller.view.backgroundColor = .clear
 							}
-						
+							
 					}
 					
 				}
@@ -130,8 +130,11 @@ struct MainView: View {
 			.animation(.easeInOut, value: selectedView)
 			.tabViewStyle(.page)
 		}
+		.onAppear {
+			pieceService.setToken(token: userSession.token!)
+		}
 		.task {
-			await loadData()
+				await loadData()
 		}
 		.refreshable {
 			await loadData()
