@@ -24,7 +24,13 @@ struct AddEditPieceView: View {
 	
 	var body: some View {
 		VStack {
-			if doneLoading {
+			if isLoading {
+				VStack {
+					ProgressView().progressViewStyle(.circular)
+				}
+				.frame(maxWidth: .infinity, maxHeight: .infinity)
+				.transition(.reverseSlide)
+			} else if doneLoading {
 				Image(systemName: "checkmark.circle.fill")
 					.background(.clear)
 					.foregroundColor(Color("Nocturne3"))
@@ -82,10 +88,12 @@ struct AddEditPieceView: View {
 								composerIsFocussed = false
 								do {
 									_ = try await pieceService.postPiece(title: title, composer: composer)
+									try await Task.sleep(for: .seconds(1))
 									withAnimation {
 										doneLoading = true
+										isLoading = false
 									}
-									try await Task.sleep(nanoseconds: 1000000000) //<-- 1 Sekunde
+									try await Task.sleep(for: .seconds(1))
 									dismiss.callAsFunction()
 								} catch {
 									isLoading = false
@@ -96,7 +104,7 @@ struct AddEditPieceView: View {
 							//Tell em to add info
 						}
 					} label: {
-						Text(isLoading ? "Adding" : "Add Piece")
+						Text("Add Piece")
 							.withPrimaryButtonSizeViewModifier()
 							.withPrimaryButtonColorModifier()
 							.padding()
