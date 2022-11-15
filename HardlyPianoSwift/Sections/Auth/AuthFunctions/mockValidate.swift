@@ -13,7 +13,7 @@ class MockAuthService: authenticatorProtocol {
 		if (username == "test" && password == "op") {
 			return "JWT1337"
 		} else {
-			throw LoginError.badRequest(message: "Bad Requests")
+			throw LoginError.invalidLogin
 		}
 	}
 	

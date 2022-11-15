@@ -13,6 +13,7 @@ enum LoginError: Error {
 	case serverOffline
 	case encodingFailed
 	case badRequest(message: String)
+	case invalidLogin
 	
 }
 
@@ -57,13 +58,21 @@ class RestAuthenticator: authenticatorProtocol {
 					print("Token: " + decodedResponse.token)
 					return decodedResponse.token
 				} else {
+					print("Should arrive here")
 					let errorResponse = try decoder.decode(ErrorResponse.self, from: response.0)
+					print("Please arrive here")
 					throw LoginError.badRequest(message: errorResponse.message)
 				}
 			}
+		} catch LoginError.badRequest(message: "Username not found."){
+			print("WRONG USERNAME")
+			throw LoginError.invalidLogin
 		} catch {
-			throw LoginError.encodingFailed
+			print("I fucked up")
+			print(error)
+//			throw LoginError.badRequest(message: )
 		}
+		print("Here?")
 		throw LoginError.serverOffline
 	}
 	

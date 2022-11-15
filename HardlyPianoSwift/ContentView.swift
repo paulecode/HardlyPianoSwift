@@ -24,7 +24,7 @@ struct ContentView: View {
 			MainView(selectedView: $selectedView, pieceService: pieceService)
 		} else {
 			if hasAccount {
-				AuthView(hasAccount: $hasAccount, authenticator: authenticator, debug: true)
+				AuthView(hasAccount: $hasAccount, authenticator: authenticator, debug: false)
 			} else {
 				SignUpView(authenticator: authenticator, hasAccount: $hasAccount)
 			}

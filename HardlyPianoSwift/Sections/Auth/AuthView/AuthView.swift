@@ -12,6 +12,7 @@ struct AuthView: View {
 	@State private var username: String = ""
 	@State private var password: String = ""
 	@State private var isSignedIn: Bool = false
+	@State private var failedSignIn: Bool = false
 	
 	@FocusState private var userfieldFocused: Bool
 	@FocusState private var passfieldFocused: Bool
@@ -48,6 +49,11 @@ struct AuthView: View {
 					.fontWeight(.bold)
 				SecureField("*********", text: $password)
 					.focused($passfieldFocused)
+					.onSubmit {
+						Task {
+							await signIn()
+						}
+					}
 				Divider()
 					.frame(height: 1)
 					.background(passfieldFocused ? Color("Flat3") : Color("Flat7"))
@@ -57,14 +63,7 @@ struct AuthView: View {
 			//LoginButton
 			Button {
 				Task {
-					do {
-						let token = try await authenticator.signIn(username: username, password: password)
-						userSession.signIn(token: token)
-					} catch LoginError.badRequest(let message){
-						print(message)
-					} catch {
-						print(error)
-					}
+					await signIn()
 				}
 			} label: {
 				Text("Login")
@@ -94,6 +93,12 @@ struct AuthView: View {
 				
 			}
 			
+			if failedSignIn {
+				Text("Check your credentials")
+					.foregroundColor(Color("Fuoco5"))
+					.transition(.slide)
+			}
+			
 			if debug {
 				Text("Valid login: " + isSignedIn.description)
 			}
@@ -101,6 +106,22 @@ struct AuthView: View {
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(Color("Flat9"))
 		.transition(.slide)
+	}
+	
+	func signIn() async {
+			do {
+				let token = try await authenticator.signIn(username: username, password: password)
+				userSession.signIn(token: token)
+			} catch LoginError.invalidLogin {
+				print("dsa")
+				withAnimation {
+					failedSignIn = true
+					username = ""
+					password = ""
+				}
+			} catch {
+				print(error)
+			}
 	}
 }
 
