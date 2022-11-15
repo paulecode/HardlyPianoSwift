@@ -10,7 +10,7 @@ import Foundation
 class MockAuthService: authenticatorProtocol {
 	
 	func signIn(username: String, password: String) throws -> String {
-		if (username == "irakli" && password == "123456") {
+		if (username == "test" && password == "op") {
 			return "JWT1337"
 		} else {
 			throw LoginError.badRequest(message: "Bad Requests")

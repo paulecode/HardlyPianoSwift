@@ -15,8 +15,10 @@ struct DeletionDialog: View {
 	
 	@State var isLoading: Bool = false
 	@State var isSuccessful: Bool = false
+
 	
 	let piece: Piece
+	var onCompletion: () -> Void
 	var body: some View {
 		VStack {
 			if isLoading {
@@ -50,6 +52,7 @@ struct DeletionDialog: View {
 									isSuccessful = true
 									isLoading = false
 									try await Task.sleep(for: .seconds(1))
+									onCompletion()
 									dismiss.callAsFunction()
 								} else {
 									//TODO Handle failure too?
@@ -87,6 +90,6 @@ struct DeletionDialog: View {
 struct DeletionDialog_Previews: PreviewProvider {
 	static var previews: some View {
 		let previewPiece: Piece = Piece(mongoID: "104CET", title: "Etude Op. 10 No. 4", composer: "Chopin", practiceTime: 40)
-		DeletionDialog(pieceService: MockPieces(), piece: previewPiece)
+		DeletionDialog(pieceService: MockPieces(), piece: previewPiece, onCompletion: {})
 	}
 }

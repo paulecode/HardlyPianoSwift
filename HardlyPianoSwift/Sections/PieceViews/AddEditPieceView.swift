@@ -10,15 +10,39 @@ import SwiftUI
 struct AddEditPieceView: View {
 	
 	@Environment(\.dismiss) var dismiss
-	@State var title: String = ""
-	@State var composer: String = ""
-	@State var isLoading: Bool = false
-	@State var doneLoading: Bool = false
+	
+	@State private var title: String
+	@State private var composer: String
+	@State private var isLoading: Bool = false
+	@State private var doneLoading: Bool = false
+	@State private var edit: Bool
+	
+	var oldPiece: Piece?
 	
 	@FocusState private var titleIsFocussed: Bool
 	@FocusState private var composerIsFocussed: Bool
 	
 	var pieceService: pieceServiceProtocol
+	var onComplete: () -> Void
+	
+	init(oldPiece: Piece? = nil, pieceService: pieceServiceProtocol, onComplete: @escaping () -> Void) {
+		self.oldPiece = oldPiece
+		self.pieceService = pieceService
+		self.onComplete = onComplete
+		
+		self._title = State(initialValue: oldPiece?.title ?? "")
+		self._composer = State(initialValue: oldPiece?.composer ?? "")
+		self._edit = State(initialValue: oldPiece == nil ? false : true)
+//		if let oldPiece {
+//			print(oldPiece)
+//
+//			composer = oldPiece.composer
+//			edit = true
+//		} else {
+//
+//			self._composer = State(initialValue: "")
+//		}
+	}
 	
 	//TODO Make Textfields mandatory.
 	
@@ -40,7 +64,7 @@ struct AddEditPieceView: View {
 			} else {
 				VStack {
 					HStack {
-						Text("Add or Edit Piece")
+						Text(!edit ? "Add piece" : "Edit piece" )
 							.font(.title)
 						Spacer()
 						Button {
@@ -87,13 +111,19 @@ struct AddEditPieceView: View {
 								titleIsFocussed = false
 								composerIsFocussed = false
 								do {
-									_ = try await pieceService.postPiece(title: title, composer: composer)
+									if let oldPiece {
+										_ =  try await pieceService.updatePiece(oldPiece: oldPiece, title: title, composer: composer)
+										
+									} else if !edit {
+										_ = try await pieceService.postPiece(title: title, composer: composer)
+									}
 									try await Task.sleep(for: .seconds(1))
 									withAnimation {
 										doneLoading = true
 										isLoading = false
 									}
 									try await Task.sleep(for: .seconds(1))
+									onComplete()
 									dismiss.callAsFunction()
 								} catch {
 									isLoading = false
@@ -104,7 +134,7 @@ struct AddEditPieceView: View {
 							//Tell em to add info
 						}
 					} label: {
-						Text("Add Piece")
+						Text(!edit ? "Add piece" : "Save changes")
 							.withPrimaryButtonSizeViewModifier()
 							.withPrimaryButtonColorModifier()
 							.padding()
@@ -122,6 +152,6 @@ struct AddEditPieceView_Previews: PreviewProvider {
 	
 	static var previews: some View {
 		
-		AddEditPieceView(pieceService: MockPieces())
+		AddEditPieceView(oldPiece: nil, pieceService: MockPieces(), onComplete: {})
 	}
 }

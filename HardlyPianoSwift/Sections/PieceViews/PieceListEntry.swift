@@ -13,8 +13,10 @@ struct PieceListEntry: View {
 	var pieceService: pieceServiceProtocol
 	
 	@Binding var pieces: [Piece]
+	
 	@State var isExpanded: Bool = false
 	@State var deleteSheetPresent: Bool = false
+	@State var editSheetPresent: Bool = false
 	
 	@Namespace private var textAnimationNamespace
 	@Namespace private var hoursAnimationNamespace
@@ -101,10 +103,37 @@ struct PieceListEntry: View {
 					VStack (spacing: 0){
 						Button {
 							//Edit piece
+							editSheetPresent = true
 						} label: {
 							Text("Edit piece details")
 								.withTertiaryButtonStyle()
 						}
+						.sheet(isPresented: $editSheetPresent, onDismiss: {
+							//onDismiss
+							//TODO Somehow force an update
+							//							pieces.filter()
+						}) {
+							AddEditPieceView(
+								oldPiece: piece,
+								//									title: piece.title,
+								//									composer: piece.composer,
+								//									edit: true,
+								//									piece: $pieces,
+								pieceService: pieceService,
+								onComplete: {
+									Task {
+										do {
+											pieces = try await pieceService.getAllPieces()
+										} catch {
+											// pls handle me
+											print("ouchie")
+										}
+									}
+								}
+							)
+							.presentationDetents([.medium])
+						}
+						
 						Button {
 							//Delete piece
 							deleteSheetPresent = true
@@ -113,10 +142,21 @@ struct PieceListEntry: View {
 								.withTertiaryButtonStyle()
 						}
 						.sheet(isPresented: $deleteSheetPresent, onDismiss: {
-							pieces = pieces.filter({ $0 != piece })
+							//							pieces = pieces.filter({ $0 != piece })
+							//First where is computationally smarter
 						}) {
-							DeletionDialog(pieceService: pieceService, piece: piece)
-								.presentationDetents([.fraction(0.25)])
+							DeletionDialog(pieceService: pieceService, piece: piece, onCompletion: {
+								Task {
+									do {
+										pieces = try await pieceService.getAllPieces()
+									} catch {
+										// pls handle me
+										print("ouchie")
+									}
+								}
+							})
+							.backgroundStyle(.ultraThinMaterial)
+							.presentationDetents([.fraction(0.25)])
 						}
 					}
 				}

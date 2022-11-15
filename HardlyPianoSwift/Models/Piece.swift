@@ -10,7 +10,7 @@ import Foundation
 struct Piece: Identifiable, Hashable, Decodable {
 	
 	let mongoID: String
-	let id = UUID()
+	var id: String { mongoID }
 	var title: String
 	var composer: String
 	var practiceTime: Int = 0

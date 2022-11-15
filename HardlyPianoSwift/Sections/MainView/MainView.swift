@@ -87,17 +87,26 @@ struct MainView: View {
 							await loadData()
 						}
 					}) {
-						AddEditPieceView(pieceService: pieceService)
-							.background(.ultraThinMaterial)
-							.presentationDetents([.medium])
-							.onAppear{
-								guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-									  let controller = windowScene.windows.first?.rootViewController?.presentedViewController
-								else {
-									return
-								}
-								controller.view.backgroundColor = .clear
+						AddEditPieceView(pieceService: pieceService) {
+									Task {
+										do {
+											pieces = try await pieceService.getAllPieces()
+										} catch {
+											// pls handle me
+											print("ouchie")
+										}
+									}
+						}
+						.background(.ultraThinMaterial)
+						.presentationDetents([.medium])
+						.onAppear{
+							guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+								  let controller = windowScene.windows.first?.rootViewController?.presentedViewController
+							else {
+								return
 							}
+							controller.view.backgroundColor = .clear
+						}
 							
 					}
 					
