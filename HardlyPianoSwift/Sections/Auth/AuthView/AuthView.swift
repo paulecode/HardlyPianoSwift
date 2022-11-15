@@ -83,7 +83,9 @@ struct AuthView: View {
 				.fontWeight(.bold)
 			
 			Button {
-				hasAccount.toggle()
+				withAnimation {
+					hasAccount.toggle()
+				}
 			} label: {
 				Text("Create an Account")
 					.withPrimaryButtonSizeViewModifier()
@@ -98,6 +100,7 @@ struct AuthView: View {
 		}
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(Color("Flat9"))
+		.transition(.slide)
 	}
 }
 

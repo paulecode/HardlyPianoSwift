@@ -101,17 +101,19 @@ struct SignUpView: View {
 				.fontWeight(.bold)
 			
 			Button {
-				hasAccount.toggle()
+				withAnimation {
+					hasAccount.toggle()
+				}				
 			} label: {
 				Text("sign in")
 					.withPrimaryButtonSizeViewModifier()
 					.withSecondaryButtonStyle()
 					.padding(.horizontal, 16)
-				
 			}
 		}
 		.frame(maxWidth: .infinity, maxHeight: .infinity)
 		.background(Color("Flat9"))
+		.transition(.slide)
 	}
 }
 
