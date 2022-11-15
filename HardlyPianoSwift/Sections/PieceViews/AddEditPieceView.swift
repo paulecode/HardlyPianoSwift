@@ -17,6 +17,10 @@ struct AddEditPieceView: View {
 	@State var doneLoading: Bool = false
 	@State var edit: Bool = false
 	
+	var oldPiece: Piece? = nil
+	
+	@Binding var pieces: [Piece]
+	
 	@FocusState private var titleIsFocussed: Bool
 	@FocusState private var composerIsFocussed: Bool
 	
@@ -89,10 +93,14 @@ struct AddEditPieceView: View {
 								titleIsFocussed = false
 								composerIsFocussed = false
 								do {
-									if edit {
+									if oldPiece != nil {
+										if try await pieceService.updatePiece(oldPiece: oldPiece!, title: title, composer: composer) {
+											let newPiece = Piece(mongoID: oldPiece?.mongoID ?? "noID", title: oldPiece?.title ?? "noTitle", composer: oldPiece?.composer ?? "noComposer")
+//											pieces = pieces.filter({$0 != oldPiece})
+											pieces.append(newPiece)
+										}
+									} else if !edit {
 										_ = try await pieceService.postPiece(title: title, composer: composer)
-									} else {
-										
 									}
 									try await Task.sleep(for: .seconds(1))
 									withAnimation {
@@ -128,6 +136,6 @@ struct AddEditPieceView_Previews: PreviewProvider {
 	
 	static var previews: some View {
 		
-		AddEditPieceView(pieceService: MockPieces())
+		AddEditPieceView(pieces: .constant(MockPieces().pieces), pieceService: MockPieces())
 	}
 }

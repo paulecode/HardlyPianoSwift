@@ -115,10 +115,11 @@ class RestPieceService: pieceServiceProtocol {
 			//TODO Fix specify error
 		}
 	}
-	//
-	//	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Piece {
-	//		<#code#>
-	//	}
+	
+		func updatePiece(oldPiece: Piece, title: String, composer: String) async throws -> Bool {
+			//Do some
+			return true
+		}
 	
 	
 }

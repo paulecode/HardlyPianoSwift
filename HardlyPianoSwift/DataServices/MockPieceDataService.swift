@@ -17,7 +17,7 @@ protocol pieceServiceProtocol {
 
 	func deletePiece(piece: Piece) async throws -> Bool
 
-//	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Bool
+	func updatePiece(oldPiece: Piece, title: String, composer: String) async throws -> Bool
 	
 }
 
@@ -28,6 +28,7 @@ class MockPieces: ObservableObject, pieceServiceProtocol {
 	init() {
 		self.token = "validtoken"
 	}
+	
 	@Published var pieces: [Piece] = [
 	Piece(
 		mongoID: "632b4856fa42ef9537d9b375",
@@ -86,9 +87,9 @@ class MockPieces: ObservableObject, pieceServiceProtocol {
 		return true
 	}
 	
-	func updatePiece(oldPiece: Piece, title: String?, composer: String?) async throws -> Bool {
+	func updatePiece(oldPiece: Piece, title: String, composer: String) async throws -> Bool {
 		//Check what changed
-		let newPiece = Piece(mongoID: oldPiece.mongoID, title: title ?? oldPiece.title, composer: composer ?? oldPiece.composer, practiceTime: oldPiece.practiceTime)
+		let newPiece = Piece(mongoID: oldPiece.mongoID, title: title, composer: composer, practiceTime: oldPiece.practiceTime)
 		
 		pieces = pieces.filter({$0 != oldPiece})
 		pieces.append(newPiece)

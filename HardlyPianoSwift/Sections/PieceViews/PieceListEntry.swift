@@ -109,11 +109,13 @@ struct PieceListEntry: View {
 						}
 						.sheet(isPresented: $editSheetPresent, onDismiss: {
 							//onDismiss
+							//TODO Somehow force an update
+//							pieces.filter()
 						}) {
-							AddEditPieceView(title: piece.title, composer: piece.composer, edit: true, pieceService: pieceService)
+							AddEditPieceView(title: piece.title, composer: piece.composer, edit: true, oldPiece: piece, pieces: $pieces, pieceService: pieceService)
 								.presentationDetents([.medium])
 						}
-						
+							
 						Button {
 							//Delete piece
 							deleteSheetPresent = true

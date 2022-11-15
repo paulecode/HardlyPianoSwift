@@ -87,7 +87,7 @@ struct MainView: View {
 							await loadData()
 						}
 					}) {
-						AddEditPieceView(pieceService: pieceService)
+						AddEditPieceView(pieces: $pieces, pieceService: pieceService)
 							.background(.ultraThinMaterial)
 							.presentationDetents([.medium])
 							.onAppear{
