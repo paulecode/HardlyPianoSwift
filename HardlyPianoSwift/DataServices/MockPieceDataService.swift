@@ -100,6 +100,7 @@ class MockPieces: ObservableObject, pieceServiceProtocol {
 //		let piece = pieces[index]
 //		piece.title = title
 //		piece.composer = composer
+		print(pieces)
 		return pieces[index]
 		
 //		print("got here", index)

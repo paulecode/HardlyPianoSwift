@@ -111,29 +111,29 @@ struct PieceListEntry: View {
 						.sheet(isPresented: $editSheetPresent, onDismiss: {
 							//onDismiss
 							//TODO Somehow force an update
-//							pieces.filter()
+							//							pieces.filter()
 						}) {
 							AddEditPieceView(
 								oldPiece: piece,
-//									title: piece.title,
-//									composer: piece.composer,
-//									edit: true,
-//									piece: $pieces,
+								//									title: piece.title,
+								//									composer: piece.composer,
+								//									edit: true,
+								//									piece: $pieces,
 								pieceService: pieceService,
 								onComplete: { updatedPiece in
-									guard let index = self.pieces.firstIndex(of: piece) else {
-										return
+									Task {
+										do {
+											pieces = try await pieceService.getAllPieces()
+										} catch {
+											// pls handle me
+											print("ouchie")
+										}
 									}
-									print("got here", index)
-									print("Before", pieces[index])
-									print("updated", updatedPiece)
-									pieces[index] = updatedPiece
-									print("Updated array", pieces)
 								}
 							)
 							.presentationDetents([.medium])
 						}
-							
+						
 						Button {
 							//Delete piece
 							deleteSheetPresent = true

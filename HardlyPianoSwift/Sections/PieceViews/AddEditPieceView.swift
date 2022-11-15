@@ -112,10 +112,13 @@ struct AddEditPieceView: View {
 								composerIsFocussed = false
 								do {
 									if let oldPiece {
+										
 										let newPiece =  try await pieceService.updatePiece(oldPiece: oldPiece, title: title, composer: composer)
+//										let newPiece =  try await pieceService.updatePiece(oldPiece: oldPiece, title: title, composer: composer)
 //											let newPiece = Piece(mongoID: oldPiece.mongoID, title: oldPiece.title, composer: oldPiece.composer)
 //											pieces = pieces.filter({$0 != oldPiece})
 //											pieces.append(newPiece)
+											
 											onComplete(newPiece)
 //										withAnimation {
 //											doneLoading
