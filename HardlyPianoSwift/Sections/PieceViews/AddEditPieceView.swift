@@ -23,9 +23,9 @@ struct AddEditPieceView: View {
 	@FocusState private var composerIsFocussed: Bool
 	
 	var pieceService: pieceServiceProtocol
-	var onComplete: (Piece) -> Void
+	var onComplete: () -> Void
 	
-	init(oldPiece: Piece? = nil, pieceService: pieceServiceProtocol, onComplete: @escaping (Piece) -> Void) {
+	init(oldPiece: Piece? = nil, pieceService: pieceServiceProtocol, onComplete: @escaping () -> Void) {
 		self.oldPiece = oldPiece
 		self.pieceService = pieceService
 		self.onComplete = onComplete
@@ -112,17 +112,7 @@ struct AddEditPieceView: View {
 								composerIsFocussed = false
 								do {
 									if let oldPiece {
-										
-										let newPiece =  try await pieceService.updatePiece(oldPiece: oldPiece, title: title, composer: composer)
-//										let newPiece =  try await pieceService.updatePiece(oldPiece: oldPiece, title: title, composer: composer)
-//											let newPiece = Piece(mongoID: oldPiece.mongoID, title: oldPiece.title, composer: oldPiece.composer)
-//											pieces = pieces.filter({$0 != oldPiece})
-//											pieces.append(newPiece)
-											
-											onComplete(newPiece)
-//										withAnimation {
-//											doneLoading
-//										}
+										_ =  try await pieceService.updatePiece(oldPiece: oldPiece, title: title, composer: composer)
 										
 									} else if !edit {
 										_ = try await pieceService.postPiece(title: title, composer: composer)
@@ -133,6 +123,7 @@ struct AddEditPieceView: View {
 										isLoading = false
 									}
 									try await Task.sleep(for: .seconds(1))
+									onComplete()
 									dismiss.callAsFunction()
 								} catch {
 									isLoading = false
@@ -161,6 +152,6 @@ struct AddEditPieceView_Previews: PreviewProvider {
 	
 	static var previews: some View {
 		
-		AddEditPieceView(oldPiece: nil, pieceService: MockPieces(), onComplete: {_ in})
+		AddEditPieceView(oldPiece: nil, pieceService: MockPieces(), onComplete: {})
 	}
 }

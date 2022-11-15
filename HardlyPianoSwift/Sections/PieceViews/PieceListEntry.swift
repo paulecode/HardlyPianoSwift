@@ -120,7 +120,7 @@ struct PieceListEntry: View {
 								//									edit: true,
 								//									piece: $pieces,
 								pieceService: pieceService,
-								onComplete: { updatedPiece in
+								onComplete: {
 									Task {
 										do {
 											pieces = try await pieceService.getAllPieces()
@@ -142,11 +142,21 @@ struct PieceListEntry: View {
 								.withTertiaryButtonStyle()
 						}
 						.sheet(isPresented: $deleteSheetPresent, onDismiss: {
-							pieces = pieces.filter({ $0 != piece })
+							//							pieces = pieces.filter({ $0 != piece })
 							//First where is computationally smarter
 						}) {
-							DeletionDialog(pieceService: pieceService, piece: piece)
-								.presentationDetents([.fraction(0.25)])
+							DeletionDialog(pieceService: pieceService, piece: piece, onCompletion: {
+								Task {
+									do {
+										pieces = try await pieceService.getAllPieces()
+									} catch {
+										// pls handle me
+										print("ouchie")
+									}
+								}
+							})
+							.backgroundStyle(.ultraThinMaterial)
+							.presentationDetents([.fraction(0.25)])
 						}
 					}
 				}

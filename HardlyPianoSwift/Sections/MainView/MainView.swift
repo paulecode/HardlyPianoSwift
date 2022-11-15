@@ -87,8 +87,15 @@ struct MainView: View {
 							await loadData()
 						}
 					}) {
-						AddEditPieceView(pieceService: pieceService) { newPiece in
-							pieces.append(newPiece)
+						AddEditPieceView(pieceService: pieceService) {
+									Task {
+										do {
+											pieces = try await pieceService.getAllPieces()
+										} catch {
+											// pls handle me
+											print("ouchie")
+										}
+									}
 						}
 						.background(.ultraThinMaterial)
 						.presentationDetents([.medium])
