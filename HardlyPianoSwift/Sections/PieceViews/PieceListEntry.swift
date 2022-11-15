@@ -13,6 +13,7 @@ struct PieceListEntry: View {
 	var pieceService: pieceServiceProtocol
 	
 	@Binding var pieces: [Piece]
+	
 	@State var isExpanded: Bool = false
 	@State var deleteSheetPresent: Bool = false
 	@State var editSheetPresent: Bool = false
@@ -112,8 +113,25 @@ struct PieceListEntry: View {
 							//TODO Somehow force an update
 //							pieces.filter()
 						}) {
-							AddEditPieceView(title: piece.title, composer: piece.composer, edit: true, oldPiece: piece, pieces: $pieces, pieceService: pieceService)
-								.presentationDetents([.medium])
+							AddEditPieceView(
+								oldPiece: piece,
+//									title: piece.title,
+//									composer: piece.composer,
+//									edit: true,
+//									piece: $pieces,
+								pieceService: pieceService,
+								onComplete: { updatedPiece in
+									guard let index = self.pieces.firstIndex(of: piece) else {
+										return
+									}
+									print("got here", index)
+									print("Before", pieces[index])
+									print("updated", updatedPiece)
+									pieces[index] = updatedPiece
+									print("Updated array", pieces)
+								}
+							)
+							.presentationDetents([.medium])
 						}
 							
 						Button {
@@ -125,6 +143,7 @@ struct PieceListEntry: View {
 						}
 						.sheet(isPresented: $deleteSheetPresent, onDismiss: {
 							pieces = pieces.filter({ $0 != piece })
+							//First where is computationally smarter
 						}) {
 							DeletionDialog(pieceService: pieceService, piece: piece)
 								.presentationDetents([.fraction(0.25)])

@@ -116,9 +116,9 @@ class RestPieceService: pieceServiceProtocol {
 		}
 	}
 	
-		func updatePiece(oldPiece: Piece, title: String, composer: String) async throws -> Bool {
+		func updatePiece(oldPiece: Piece, title: String, composer: String) async throws -> Piece {
 			//Do some
-			return true
+			return oldPiece
 		}
 	
 	
