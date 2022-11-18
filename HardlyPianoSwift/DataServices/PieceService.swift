@@ -13,7 +13,7 @@ enum RequestError: Error {
 
 class RestPieceService: pieceServiceProtocol {
 
-	var urlString = "http://localhost:3000"
+	var urlString = "http://ec2-3-66-192-132.eu-central-1.compute.amazonaws.com:3000"
 	
 	var token: String
 	
@@ -27,7 +27,7 @@ class RestPieceService: pieceServiceProtocol {
 	
 	func getAllPieces() async throws -> [Piece] {
 		
-		guard let localurl = URL(string: "http://localhost:3000/pieces") else {
+		guard let localurl = URL(string: urlString + "/pieces") else {
 			print("Invalid URL")
 			throw RequestError.BadRequest
 		}
@@ -52,7 +52,7 @@ class RestPieceService: pieceServiceProtocol {
 	func postPiece(title: String, composer: String) async throws -> Piece {
 		let pieceToPost = PostPiece(title: title, composer: composer)
 		
-		guard let localurl = URL(string: "http://localhost:3000/pieces") else {
+		guard let localurl = URL(string: urlString + "/pieces") else {
 			throw LoginError.invalidURL
 		}
 		
@@ -95,7 +95,7 @@ class RestPieceService: pieceServiceProtocol {
 		
 		
 		
-		guard let localurl = URL(string: "http://localhost:3000/pieces/" + piece.mongoID) else {
+		guard let localurl = URL(string: urlString + "/pieces/" + piece.mongoID) else {
 			print("Invalid URL")
 			throw RequestError.BadRequest
 		}
@@ -120,7 +120,7 @@ class RestPieceService: pieceServiceProtocol {
 	func updatePiece(oldPiece: Piece, title: String, composer: String) async throws -> Piece {
 		let pieceToPost = PostPiece(title: title, composer: composer)
 		
-		guard let localurl = URL(string: "http://localhost:3000/pieces/" + oldPiece.mongoID) else {
+		guard let localurl = URL(string: urlString + "/pieces/" + oldPiece.mongoID) else {
 			throw LoginError.invalidURL
 		}
 		

@@ -35,7 +35,7 @@ class RestAuthenticator: authenticatorProtocol {
 
 		let user: UserCreds = UserCreds(username: username, password: password)
 
-		guard let localurl = URL(string: "http://localhost:3000/auth/login") else {
+		guard let localurl = URL(string: "http://ec2-3-66-192-132.eu-central-1.compute.amazonaws.com:3000/auth/login") else {
 			throw LoginError.invalidURL
 		}
 
@@ -79,7 +79,7 @@ class RestAuthenticator: authenticatorProtocol {
 	func signUp(username: String, password: String) async throws -> Bool {
 		let user: UserCreds = UserCreds(username: username, password: password)
 		
-		guard let localurl = URL(string: "http://localhost:3000/auth/register") else {
+		guard let localurl = URL(string: "http://ec2-3-66-192-132.eu-central-1.compute.amazonaws.com:3000/auth/register") else {
 			throw LoginError.invalidURL
 		}
 		

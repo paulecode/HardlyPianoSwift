@@ -67,6 +67,7 @@
 		DA6C0751291A4F3C0031D6FA /* PrimaryButtonSizeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonSizeViewModifier.swift; sourceTree = "<group>"; };
 		DA7A5757291D50B700C97FF5 /* AddEditPieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditPieceView.swift; sourceTree = "<group>"; };
 		DAA1B2A529198E2F002C448E /* SecondaryButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButtonViewModifier.swift; sourceTree = "<group>"; };
+		DAA1DC5029275EE600DF0F24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DAB03ABB29217A84001C5081 /* HardlyPianoSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HardlyPianoSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB03ABD29217A84001C5081 /* HardlyPianoSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardlyPianoSwiftTests.swift; sourceTree = "<group>"; };
 		DAB03AC429217AB5001C5081 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
@@ -140,6 +141,7 @@
 		DA2D3FCA290AD00A00FA2CE6 /* HardlyPianoSwift */ = {
 			isa = PBXGroup;
 			children = (
+				DAA1DC5029275EE600DF0F24 /* Info.plist */,
 				DA4B45912922ACF600F6BF99 /* Animations */,
 				DA1E99232915C46800155CB1 /* DataServices */,
 				DA1E99202915C39900155CB1 /* Models */,
@@ -538,6 +540,7 @@
 				DEVELOPMENT_TEAM = 84SFW95R2P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HardlyPianoSwift/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -567,6 +570,7 @@
 				DEVELOPMENT_TEAM = 84SFW95R2P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HardlyPianoSwift/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
